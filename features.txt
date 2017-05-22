@@ -1,0 +1,39 @@
+************ Task  ******************
+
+-------------------------------------------
+AS A Student
+I WANT TO add a task
+-------------------------------------------
+
+-------------------------------------------
+AS A Student
+I WANT TO update a task
+
+- Change task due date
+- Mark task complete
+- Archive task
+-------------------------------------------
+
+-------------------------------------------
+AS A Student
+I WANT TO view all my tasks
+---------
+
+- sorted by due date. 
+- todays tasks by default.
+-------------------------------------------
+
+-------------------------------------------
+AS A Student
+I WANT TO get a reminder notification for tasks due today
+
+I should be able to reschedule / mark complete / archive from the notification
+-------------------------------------------
+
+************ Schedule ******************
+
+***************** Exam ***************************
+
+************ Assignment ****************
+
+************ Event ******************
