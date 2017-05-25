@@ -1,0 +1,101 @@
+************ Task  ******************
+
+-------------------------------------------
+AS A Student
+I WANT TO add a task
+-------------------------------------------
+
+-------------------------------------------
+AS A Student
+I WANT TO update a task
+
+- Change task due date
+- Mark task complete
+- Archive task
+-------------------------------------------
+
+-------------------------------------------
+AS A Student
+I WANT TO view all my tasks
+---------
+
+- sorted by due date. 
+- todays tasks by default.
+-------------------------------------------
+
+-------------------------------------------
+AS A Student
+I WANT TO get a reminder notification for tasks due today
+
+I should be able to reschedule / mark complete / archive from the notification
+-------------------------------------------
+
+************ Schedule ******************
+AS A Student
+I WANT TO create a schedule of my classes
+-------------------------------------------
+-------------------------------------------
+AS A Student
+I WANT TO modify the schedule if needed
+---------------------------------------------
+-------------------------------------------
+AS A Student
+I WANT TO view the entire week's schedule in one screen.
+-----------------------------------------------
+---------------------------------------------
+AS A Student 
+I WANT TO be able to share my schedule with a friend.
+-----------------------------------------------
+-----------------------------------------------
+AS A Student 
+I WANT TO schedule my weekly club meetings and set a reminder
+------------------------------------------------------------
+***************** Exam ***************************
+AS A Student
+I WANT TO create an event for my coming exam
+------------------------------------
+-------------------------------------
+AS A Student 
+I WANT TO get a reminder notification for the exam
+-----------------------------------
+------------------------------------
+AS A Student
+I WANT TO be able to create a sub of list of tasks for each exam.
+------------------------------------
+-----------------------------------
+AS A Student
+I WANT TO update the exam details
+- change the dates
+- delete the exam
+- Mark done
+- Archive
+-------------------------------------------
+
+************ Assignment ****************
+AS A Student
+I WANT TO create a group assignment and invite other students
+---------------------------------------
+---------------------------------------
+AS A Student
+I WANT TO share my schedule with the group members
+-------------------------------------
+-------------------------------------
+AS A Student
+I WANT TO be able to create an event/ task inside the group
+------------------------------------
+************ Event ******************
+AS A Student
+I WANT TO be able to create an event
+------------------------------
+--------------------------------
+AS A Student
+I WANT TO update an event
+
+- Change event due date
+- Mark event complete
+- Archive event
+------------------------------------
+------------------------------------
+AS A Student 
+I WANT TO get a reminder notification for the event
+----------------------------------------------------
