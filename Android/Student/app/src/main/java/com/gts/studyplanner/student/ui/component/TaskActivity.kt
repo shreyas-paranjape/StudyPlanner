@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import com.gts.studyplanner.student.R
+import com.gts.studyplanner.student.data.model.Task
 import com.gts.studyplanner.student.ui.adapter.TaskAdapter
 import kotlinx.android.synthetic.main.activity_task.*
 import org.jetbrains.anko.AnkoLogger
+import java.util.*
 
 class TaskActivity : AppCompatActivity(), AnkoLogger {
 
@@ -23,7 +25,9 @@ class TaskActivity : AppCompatActivity(), AnkoLogger {
             listAdapter = TaskAdapter()
             adapter = listAdapter
         }
-
+        val task = Task()
+        task.updatedAt = Calendar.getInstance()
+        listAdapter.add(task)
     }
 
     private fun initToolbar(): Toolbar {
