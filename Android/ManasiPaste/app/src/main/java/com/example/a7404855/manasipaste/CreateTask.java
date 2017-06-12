@@ -8,38 +8,44 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.List;
+import java.util.Random;
 
 
-public class CreateTask extends AppCompatActivity implements View.OnClickListener {
-    private List<Task> task1= MainActivity.tasks;
+public class CreateTask extends AppCompatActivity {
+    private Task task;
+
+    //private List<Task> task1= MainActivity.tasks;
+
+    private Random random = new Random();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_task);
         //get the task name from user
 
-        Button save =(Button) findViewById(R.id.button);
-        save.setOnClickListener(this);
+        final EditText etTitle = (EditText) findViewById(R.id.editText);
 
-    }
-    @Override
-    public void onClick(View v)
-    {
-
-        switch (v.getId()) {
-            case R.id.button:
-                EditText task =(EditText)findViewById(R.id.editText);
-                String taskName= task.getText().toString();
-                Task newTask = new Task();
-                newTask.setTitle(taskName);
-                task1.add(newTask);
-
-                Intent out = new Intent(this, MainActivity.class);
-                startActivity(out);
+        Button save = (Button) findViewById(R.id.button);
+        task = (Task) getIntent().getSerializableExtra("TASK");
+        if (task != null)
+            etTitle.setText(task.getTitle());
+        else {
+            task = new Task();
+            task.setId(random.nextLong());
         }
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String taskName = etTitle.getText().toString();
+                task.setTitle(taskName);
+                Intent intent = getIntent();
+                intent.putExtra("TASK", task);
+                setResult(RESULT_OK,intent);
+                finish();
+            }
+        });
+
 
     }
-
-
 }
