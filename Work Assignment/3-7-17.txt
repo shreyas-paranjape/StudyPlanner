@@ -1,0 +1,7 @@
+. Activity to add/edit a task
+
+. Activity to add/edit an Exam
+
+. Activity a add/edit an Assignment
+	
+. Activity to view all events (Task, Exam, Assignment) for a day

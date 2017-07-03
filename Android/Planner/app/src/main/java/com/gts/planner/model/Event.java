@@ -1,12 +1,10 @@
 package com.gts.planner.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import android.database.Cursor;
 
 public class Event {
 
-    public static List<Event> getForDay(Date aDay) {
-        return new ArrayList<>();
+    public static Event fromCursor(Cursor eventCursor) {
+        return new Event();
     }
 }

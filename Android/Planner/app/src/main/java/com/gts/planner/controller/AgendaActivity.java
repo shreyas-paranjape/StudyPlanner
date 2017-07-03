@@ -15,14 +15,14 @@ import android.view.animation.OvershootInterpolator;
 
 import com.gts.planner.R;
 
-public class DashboardActivity extends AppCompatActivity {
+public class AgendaActivity extends AppCompatActivity {
 
     private boolean isFabMenuOpen;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_agenda);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         RecyclerView rvDayEvents = (RecyclerView) findViewById(R.id.rvDayEvents);
@@ -39,7 +39,7 @@ public class DashboardActivity extends AppCompatActivity {
         findViewById(R.id.fabAddTask).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addTaskActivity = new Intent(DashboardActivity.this, AddTaskActivity.class);
+                Intent addTaskActivity = new Intent(AgendaActivity.this, AddTaskActivity.class);
                 startActivityForResult(addTaskActivity, 101);
                 collapseFabMenu();
             }

@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".controller.DashboardActivity"
+            android:name=".controller.AgendaActivity"
             android:label="@string/dashboard"
             android:launchMode="singleTop" />
         <activity android:name=".controller.AddTaskActivity" />

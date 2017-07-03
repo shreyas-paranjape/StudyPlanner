@@ -31,7 +31,7 @@ public class LaunchActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Intent activityDashBoard = new Intent(
-                    LaunchActivity.this, DashboardActivity.class
+                    LaunchActivity.this, AgendaActivity.class
             );
             startActivity(activityDashBoard);
             finish();
