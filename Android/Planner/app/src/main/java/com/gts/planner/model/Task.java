@@ -1,5 +1,7 @@
 package com.gts.planner.model;
 
+import android.database.Cursor;
+
 public class Task {
     private Long id;
     private Long student_id;
@@ -55,5 +57,30 @@ public class Task {
     public Long getStudent_id(){
         return this.student_id;
     }
-
+    @Override
+    public String toString(){
+        return "Task{"+ " id="+ id+ ", title='"+ title + '\'' +
+                " Due Date =" + DueDate+ '}';
+    }
+    @Override
+    public boolean equals (Object o){
+        if (this ==o) return true;
+        if(o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Task task = (Task)o;
+        return id != null ? id.equals(task.id): task.id == null;
+    }
+    @Override
+    public int hashCode(){
+        return id!= null ? id.hashCode():0;
+    }
+    public static Task fromCursor (Cursor cursor){
+        Task task = new Task();
+        task.setId(cursor.getLong(cursor.getColumnIndex("id")));
+        task.setTitle(cursor.getString(cursor.getColumnIndex("title")));
+        task.setDescription(cursor.getString(cursor.getColumnIndex("Description")));
+        task.setDueDate(cursor.getLong(cursor.getColumnIndex("DurDate")));
+        return task;
+    }
 }
