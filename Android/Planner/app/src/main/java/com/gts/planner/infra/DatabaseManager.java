@@ -10,4 +10,6 @@ public class DatabaseManager extends SQLiteAssetHelper {
     public DatabaseManager(Context context, String dbName) {
         super(context, dbName, null, 1);
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.gts.sqlitetutorial;
+    package com.gts.sqlitetutorial;
 
 import android.database.Cursor;
 
