@@ -40,7 +40,7 @@ public class CreateTask extends AppCompatActivity {
                 String taskName = etTitle.getText().toString();
                 task.setTitle(taskName);
                 Intent intent = getIntent();
-                intent.putExtra("TASK", task);
+               // intent.putExtra("TASK", task);
                 setResult(RESULT_OK,intent);
                 finish();
             }

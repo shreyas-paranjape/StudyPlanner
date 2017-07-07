@@ -37,12 +37,13 @@ class TaskAdapter extends ArrayAdapter<Task> {
         Button edit = (Button) customView.findViewById(R.id.edit1);
 
         taskname.setText(item.getTitle());
+
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(getContext(), CreateTask.class);
-                intent.putExtra("TASK", item);
+               // intent.putExtra("TASK", item);
                 ((Activity)getContext()).startActivityForResult(intent,998);
             }
         });
