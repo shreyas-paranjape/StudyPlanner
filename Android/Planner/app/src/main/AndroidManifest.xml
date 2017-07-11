@@ -22,6 +22,8 @@
             android:label="@string/dashboard"
             android:launchMode="singleTop" />
         <activity android:name=".controller.AddTaskActivity" />
-    </application>
+        <activity android:name=".controller.AddCourseActivity"/>
+        <activity android:name=".controller.AddExamActivity"/>
+    </application>;
 
 </manifest>

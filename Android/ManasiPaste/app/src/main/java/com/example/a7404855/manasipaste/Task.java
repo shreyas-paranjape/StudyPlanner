@@ -1,18 +1,16 @@
 package com.example.a7404855.manasipaste;
 
-import java.io.Serializable;
+import android.database.Cursor;
 
 
-public class Task implements Serializable {
 
-    public static long serialVersionUID = 1L;
+public class Task {
 
     private long id;
     private String title;
 
 
     public Task() {
-        this.title ="need a name";
     }
 
     public Task(long id,String title) {
@@ -35,7 +33,11 @@ public class Task implements Serializable {
     public void setId(long id) {
         this.id = id;
     }
-
+    @Override
+    public String toString()
+    {
+        return "Task{" + "id="+ id+ ", title=' "+ title+ '\'' +'}';
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -50,5 +52,13 @@ public class Task implements Serializable {
     @Override
     public int hashCode() {
         return (int) (id ^ (id >>> 32));
+    }
+
+    public static Task fromCursor (Cursor cursor)
+    {
+        Task task = new Task();
+        task.setId(cursor.getLong (cursor.getColumnIndex("id")));
+        task.setTitle(cursor.getString(cursor.getColumnIndex("title")));
+        return task;
     }
 }

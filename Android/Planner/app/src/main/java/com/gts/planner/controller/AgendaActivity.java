@@ -27,6 +27,10 @@ public class AgendaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         RecyclerView rvDayEvents = (RecyclerView) findViewById(R.id.rvDayEvents);
         rvDayEvents.setLayoutManager(new LinearLayoutManager(this));
+        Listeners();
+    }
+
+    public void Listeners(){
         findViewById(R.id.fabShowMenu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +40,8 @@ public class AgendaActivity extends AppCompatActivity {
                     expandFabMenu();
             }
         });
-        findViewById(R.id.fabAddTask).setOnClickListener(new View.OnClickListener() {
+
+        findViewById(R.id.taskContainer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent addTaskActivity = new Intent(AgendaActivity.this, AddTaskActivity.class);
@@ -44,6 +49,27 @@ public class AgendaActivity extends AppCompatActivity {
                 collapseFabMenu();
             }
         });
+
+        findViewById(R.id.examContainer).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent addExamActivity = new Intent(AgendaActivity.this, AddExamActivity.class);
+                startActivityForResult(addExamActivity,102);
+                collapseFabMenu();
+            }
+        });
+
+        findViewById(R.id.courseContainer).setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent addCourseActivity = new Intent(AgendaActivity.this, AddCourseActivity.class);
+                startActivityForResult(addCourseActivity, 103);
+                collapseFabMenu();
+            }
+        });
+
 
     }
 
@@ -66,7 +92,11 @@ public class AgendaActivity extends AppCompatActivity {
                 new OvershootInterpolator(10.0F)).start();
         Animation fabOpenAnimation = AnimationUtils.loadAnimation(this, R.anim.fab_open);
         findViewById(R.id.taskContainer).startAnimation(fabOpenAnimation);
-        findViewById(R.id.fabAddTask).setClickable(true);
+        findViewById(R.id.taskContainer).setClickable(true);
+        findViewById(R.id.examContainer).startAnimation(fabOpenAnimation);
+        findViewById(R.id.examContainer).setClickable(true);
+        findViewById(R.id.courseContainer).startAnimation(fabOpenAnimation);
+        findViewById(R.id.courseContainer).setClickable(true);
         isFabMenuOpen = true;
 
 
@@ -78,7 +108,11 @@ public class AgendaActivity extends AppCompatActivity {
                 new OvershootInterpolator(10.0F)).start();
         Animation fabCloseAnimation = AnimationUtils.loadAnimation(this, R.anim.fab_close);
         findViewById(R.id.taskContainer).startAnimation(fabCloseAnimation);
-        findViewById(R.id.fabAddTask).setClickable(false);
+        findViewById(R.id.taskContainer).setClickable(false);
+        findViewById(R.id.examContainer).startAnimation(fabCloseAnimation);
+        findViewById(R.id.examContainer).setClickable(false);
+        findViewById(R.id.courseContainer).startAnimation(fabCloseAnimation);
+        findViewById(R.id.courseContainer).setClickable(false);
         isFabMenuOpen = false;
     }
 }

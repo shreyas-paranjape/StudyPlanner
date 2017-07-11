@@ -43,7 +43,7 @@ class TaskAdapter extends ArrayAdapter<Task> {
             public void onClick(View v) {
 
                 Intent intent = new Intent(getContext(), CreateTask.class);
-                intent.putExtra("TASK", item);
+               // intent.putExtra("TASK", item);
                 ((Activity)getContext()).startActivityForResult(intent,998);
             }
         });
