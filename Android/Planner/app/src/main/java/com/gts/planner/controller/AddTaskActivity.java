@@ -1,5 +1,7 @@
 package com.gts.planner.controller;
 
+import android.annotation.TargetApi;
+import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +13,7 @@ import android.widget.EditText;
 import com.gts.planner.R;
 import com.gts.planner.model.Task;
 
+import java.text.ParseException;
 import java.util.Date;
 
 public class AddTaskActivity extends AppCompatActivity {
@@ -21,16 +24,16 @@ public class AddTaskActivity extends AppCompatActivity {
     private EditText title;
     private EditText due_date;
     private EditText description;
-    private Date date = new Date(epochTime);
+    private Date date;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
-
         title = (EditText) findViewById(R.id.task_name);
         description = (EditText) findViewById(R.id.desc);
         due_date = (EditText) findViewById(R.id.due_date);
+        date = DateConverter(due_date.getText().toString());
         save_button = (Button) findViewById(R.id.save);
         save_button.setOnClickListener(
                 new View.OnClickListener() {
@@ -38,10 +41,24 @@ public class AddTaskActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         NewTask.setTitle(title.getText().toString());
                         NewTask.setDescription(description.getText().toString());
+                        NewTask.setDueDate(date.getTime());
                         finish();
                     }
                 }
         );
+    }
+
+    private Date DateConverter(String date_string)
+    {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date convertedDate = new Date();
+
+        try {
+            convertedDate = dateFormat.parse(date_string);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return convertedDate;
     }
 
 }
