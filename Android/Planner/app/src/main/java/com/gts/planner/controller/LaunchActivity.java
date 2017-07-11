@@ -1,12 +1,14 @@
 package com.gts.planner.controller;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.gts.planner.App;
 import com.gts.planner.R;
+import com.gts.planner.infra.DatabaseManager;
 
 public class LaunchActivity extends AppCompatActivity {
 
@@ -23,6 +25,11 @@ public class LaunchActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             // This call ensures database created before
             // any actual usage and in background
+            deleteDatabase("studyplanner.db");
+            SQLiteOpenHelper helper = new DatabaseManager(
+                    getApplication(), "studyplanner.db"
+            );
+            //database = helper.getWritableDatabase();
             ((App) getApplication()).getDatabase();
             return null;
         }
