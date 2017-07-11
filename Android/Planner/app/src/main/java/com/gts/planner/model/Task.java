@@ -80,7 +80,7 @@ public class Task {
         task.setId(cursor.getLong(cursor.getColumnIndex("id")));
         task.setTitle(cursor.getString(cursor.getColumnIndex("title")));
         task.setDescription(cursor.getString(cursor.getColumnIndex("Description")));
-        task.setDueDate(cursor.getLong(cursor.getColumnIndex("DurDate")));
+        task.setDueDate(cursor.getLong(cursor.getColumnIndex("DueDate")));
         return task;
     }
 }
