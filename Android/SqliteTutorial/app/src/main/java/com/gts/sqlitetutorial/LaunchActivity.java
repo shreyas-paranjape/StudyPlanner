@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 public class LaunchActivity extends AppCompatActivity {
 
     private SQLiteDatabase database;
+
     private RecyclerView rvTasks;
 
     @Override

@@ -30,7 +30,8 @@
     </LinearLayout>
 
 
-    <include layout="@layout/fab_menu" />
+    <include layout="@layout/fab_menu"
+        android:layout_width="0dp" />
 
 
 </android.support.design.widget.CoordinatorLayout>
