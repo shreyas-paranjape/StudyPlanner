@@ -15,8 +15,6 @@ import java.util.Date;
 
 public class AddTaskActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
-=======
     private Task NewTask = new Task();
     private static long count = 1;
     private Button save_button;
@@ -45,6 +43,4 @@ public class AddTaskActivity extends AppCompatActivity {
                 }
         );
     }
->>>>>>> d29c3ae308a22af47819e3c0aafbb992bb7bfef8
-
 }

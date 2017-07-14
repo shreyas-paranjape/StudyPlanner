@@ -3,9 +3,7 @@ package com.gts.planner.model;
 import android.database.Cursor;
 
 public class Task {
-<<<<<<< HEAD
 
-=======
     private Long id;
     private Long student_id;
     private String title;
@@ -86,5 +84,4 @@ public class Task {
         task.setDueDate(cursor.getLong(cursor.getColumnIndex("DueDate")));
         return task;
     }
->>>>>>> d29c3ae308a22af47819e3c0aafbb992bb7bfef8
 }

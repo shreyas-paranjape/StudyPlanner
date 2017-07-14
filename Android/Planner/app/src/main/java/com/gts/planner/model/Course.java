@@ -1,7 +1,7 @@
 package com.gts.planner.model;
 import android.database.Cursor;
 
-public class Assignment {
+public class Course {
 
     private Long id;
     private String title;
@@ -9,9 +9,9 @@ public class Assignment {
     private Long edate;
     private String status;
 
-    public Assignment() {}
+    public Course() {}
 
-    public Assignment(Long id, Long sdate, Long edate, String status ) {
+    public Course(Long id, Long sdate, Long edate, String status ) {
         this.id = id;
         this.sdate = sdate;
         this.edate = edate;
@@ -20,7 +20,7 @@ public class Assignment {
 
     @Override
     public String toString() {
-        return "Assignment{" +
+        return "Course{" +
                 "id=" + id +
                 ", title='" + title + '\'' + ", StartDate=" + sdate +
                 ", EndDate=" + edate + ", Status='" + status + '\'' +
@@ -32,9 +32,9 @@ public class Assignment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-       Assignment task = (Assignment) o;
+        Course course = (Course) o;
 
-        return id != null ? id.equals(task.id) : task.id == null;
+        return id != null ? id.equals(course.id) : course.id == null;
     }
 
     @Override
@@ -82,8 +82,8 @@ public class Assignment {
         this.status = status;
     }
 
-    public static Assignment fromCursor(Cursor cursor) {
-        Assignment assign = new Assignment();
+    public static Course fromCursor(Cursor cursor) {
+        Course assign = new Course();
         assign.setId(cursor.getLong(cursor.getColumnIndex("id")));
         assign.setTitle(cursor.getString(cursor.getColumnIndex("title")));
         assign.setSdate(cursor.getLong(cursor.getColumnIndex("sdate")));
