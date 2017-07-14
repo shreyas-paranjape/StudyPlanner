@@ -1,5 +1,6 @@
 package com.gts.planner.controller;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.gts.planner.App;
 import com.gts.planner.R;
 import com.gts.planner.model.Task;
 
@@ -39,6 +41,8 @@ public class AddTaskActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         NewTask.setTitle(title.getText().toString());
                         NewTask.setDescription(description.getText().toString());
+                        SQLiteDatabase database = ((App)getApplication()).getDatabase();
+                        database.insert("task",null,NewTask.toValues());
                         finish();
                     }
                 }

@@ -1,5 +1,6 @@
 package com.gts.planner.model;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 public class Task {
@@ -18,7 +19,9 @@ public class Task {
         this.id = Id;
         this.Status=0;
     }
-    public Long getId(Long id){
+
+
+    public Long getId(){
        return this.id;
     }
     public String getTitle(){
@@ -83,5 +86,14 @@ public class Task {
         task.setDescription(cursor.getString(cursor.getColumnIndex("Description")));
         task.setDueDate(cursor.getLong(cursor.getColumnIndex("DueDate")));
         return task;
+    }
+
+    public ContentValues toValues() {
+        ContentValues values = new ContentValues();
+        values.put("id", getId());
+        values.put("title", getTitle());
+        values.put("Description", getDescription());
+        values.put("DuDate", getDueDate());
+        return values;
     }
 }
