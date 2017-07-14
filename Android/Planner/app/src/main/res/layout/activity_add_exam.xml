@@ -3,41 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="#000000"
+    android:background="#b2dfde"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
-        android:layout_width="296dp"
-        android:layout_height="50dp"
-        android:id="@+id/task_name"
-        android:hint="  Enter Name of Task here "
+        android:layout_width="319dp"
+        android:layout_height="39dp"
+        android:id="@+id/exam_name"
+        android:hint="  Enter the Exam Name here! "
         android:textAlignment="center"
         android:textSize="25sp"
         android:background="@drawable/textbox_shape"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="34dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.507" />
 
     <EditText
-        android:id="@+id/desc_task"
+        android:id="@+id/desc_exam"
         android:layout_width="322dp"
         android:layout_height="234dp"
-        android:hint="Enter task description here"
+        android:hint="Space for notes\nFor example, chapters to study....."
         android:textAlignment="center"
         android:background="@drawable/textbox_shape"
-        app:layout_constraintBottom_toTopOf="@+id/save_task"
+        app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_name"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintVertical_bias="0.228" />
+        app:layout_constraintVertical_bias="0.078" />
 
     <Button
-        android:id="@+id/save_task"
+        android:id="@+id/save_exam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
@@ -51,7 +52,7 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <EditText
-        android:id="@+id/due_date_task"
+        android:id="@+id/due_date"
         android:layout_width="244dp"
         android:layout_height="45dp"
         android:ems="10"
@@ -61,10 +62,24 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731"
+        app:layout_constraintVertical_bias="0.637"
         android:hint="Enter date here!"
         android:textAlignment="center"
         />
+
+    <EditText
+        android:id="@+id/due_time"
+        android:layout_width="272dp"
+        android:layout_height="51dp"
+        android:background="@drawable/textbox_shape"
+        android:inputType="time"
+        android:hint="Enter the time of the exam here!"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintTop_toBottomOf="@+id/due_date"
+        app:layout_constraintVertical_bias="0.318" />
 
 
 </android.support.constraint.ConstraintLayout>
