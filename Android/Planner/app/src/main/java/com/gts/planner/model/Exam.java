@@ -1,58 +1,90 @@
 package com.gts.planner.model;
 
+import android.database.Cursor;
+
 public class Exam {
 
-    private Long id;
-    private String Title;
-    private Long StartDate;
-    private Long EndDate;
-    private Long student_id;
 
+    private Long person;
+    private String paper;
+    private Long sDate;
+    private Long time;
+    private String Status;
 
-    public Exam(Long id) {
-        this.id = id;
+    public Exam(){
+        this.Status = " ";
     }
-    public Exam(){}
-    public Exam(String title){
-        this.setTitle(title);
-    }
-    public Long getId() {
-        return id;
+    public Exam(Long person){
+        this.person = person;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getPerson() {
+        return person;
     }
 
-    public String getTitle() {
-        return Title;
+    public void setPerson(Long person) {
+        this.person = person;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public String getPaper() {
+        return paper;
     }
 
-    public Long getStartDate() {
-        return StartDate;
+    public void setPaper(String paper) {
+        this.paper = paper;
     }
 
-    public void setStartDate(Long startDate) {
-        StartDate = startDate;
+    public Long getsDate() {
+        return sDate;
     }
 
-    public Long getEndDate() {
-        return EndDate;
+    public void setsDate(Long sDate) {
+        this.sDate = sDate;
     }
 
-    public void setEndDate(Long endDate) {
-        EndDate = endDate;
+    public Long getTime() {
+        return time;
     }
 
-    public Long getStudent_id() {
-        return student_id;
+    public void setTime(Long time) {
+        this.time = time;
     }
 
-    public void setStudent_id(Long student_id) {
-        this.student_id = student_id;
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    @Override
+    public String toString(){
+        return "Exam{"+ " person="+ person+ ", paper='"+ paper + '\'' + ", start date=' " + sDate + '\''
+                + ", end date=' " + time + '\'' + 
+                " Status ='" + Status + '\'' + '}';
+    }
+    @Override
+    public boolean equals (Object o){
+        if (this ==o) return true;
+        if(o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Exam exam = (Exam)o;
+        return person != null ? person.equals(exam.person): exam.person == null;
+    }
+    @Override
+    public int hashCode(){
+        return person!= null ? person.hashCode():0;
+    }
+    public static Exam fromCursor (Cursor cursor){
+        Exam exam = new Exam();
+        exam.setPerson(cursor.getLong(cursor.getColumnIndex("Person")));
+        exam.setPaper(cursor.getString(cursor.getColumnIndex("Paper")));
+        exam.setsDate(cursor.getLong(cursor.getColumnIndex("sDate")));
+        exam.setTime(cursor.getLong(cursor.getColumnIndex("time")));
+        exam.setStatus(cursor.getString(cursor.getColumnIndex("Status")));
+        return exam;
+
     }
 }

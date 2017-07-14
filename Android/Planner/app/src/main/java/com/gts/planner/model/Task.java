@@ -2,6 +2,7 @@ package com.gts.planner.model;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 public class Task {
 
@@ -87,7 +88,6 @@ public class Task {
         task.setDueDate(cursor.getLong(cursor.getColumnIndex("DueDate")));
         return task;
     }
-
     public ContentValues toValues() {
         ContentValues values = new ContentValues();
         values.put("id", getId());
@@ -96,4 +96,5 @@ public class Task {
         values.put("DuDate", getDueDate());
         return values;
     }
+
 }
