@@ -4,6 +4,7 @@ import android.database.Cursor;
 
 public class Exam {
 
+
     private Long person;
     private String paper;
     private Long sDate;
@@ -84,5 +85,6 @@ public class Exam {
         exam.setTime(cursor.getLong(cursor.getColumnIndex("time")));
         exam.setStatus(cursor.getString(cursor.getColumnIndex("Status")));
         return exam;
+
     }
 }

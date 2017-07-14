@@ -1,12 +1,27 @@
 package com.gts.planner.controller;
 
+<<<<<<< HEAD
+=======
+import android.database.sqlite.SQLiteDatabase;
+
+import com.gts.planner.App;
+import android.database.sqlite.SQLiteDatabase;
+
+import android.annotation.TargetApi;
+import android.icu.text.DateFormat;
+
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
+>>>>>>> c8a5c353eb02d81c2ec583599d0e6cbd35810795
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.gts.planner.App;
 import com.gts.planner.R;
 import com.gts.planner.model.Task;
 
@@ -17,6 +32,7 @@ import java.util.Locale;
 
 public class AddTaskActivity extends AppCompatActivity {
 
+
     private Task NewTask = new Task();
     private static long count = 1;
     private Button save_button;
@@ -25,6 +41,7 @@ public class AddTaskActivity extends AppCompatActivity {
     private EditText description;
     private Date date;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +57,19 @@ public class AddTaskActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         NewTask.setTitle(title.getText().toString());
                         NewTask.setDescription(description.getText().toString());
+
+                        SQLiteDatabase database = ((App)getApplication()).getDatabase();
+                        database.insert("task",null,NewTask.toValues());
+
                         NewTask.setDueDate(date.getTime());
+
                         finish();
                     }
                 }
         );
     }
-<<<<<<< HEAD
-=======
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private Date DateConverter(String date_string)
     {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
@@ -61,5 +82,4 @@ public class AddTaskActivity extends AppCompatActivity {
         return convertedDate;
     }
 
->>>>>>> 48f4ff8999bc0acb1224ca8f86ca2838e83594de
 }
