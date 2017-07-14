@@ -63,5 +63,7 @@ public class AddTaskActivity extends AppCompatActivity {
         }
         return convertedDate;
     }
+=======
+>>>>>>> d626c09ad31120e70bd24b9690b96bee37cb502a
 
 }

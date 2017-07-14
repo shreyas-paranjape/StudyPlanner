@@ -4,6 +4,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class Task {
+<<<<<<< HEAD
+
+=======
     private Long id;
     private Long student_id;
     private String title;
@@ -84,6 +87,10 @@ public class Task {
         task.setDueDate(cursor.getLong(cursor.getColumnIndex("DueDate")));
         return task;
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d29c3ae308a22af47819e3c0aafbb992bb7bfef8
+>>>>>>> d626c09ad31120e70bd24b9690b96bee37cb502a
 }
