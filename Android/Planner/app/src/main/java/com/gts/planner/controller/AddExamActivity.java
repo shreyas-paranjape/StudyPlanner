@@ -12,16 +12,12 @@ import com.gts.planner.App;
 import com.gts.planner.R;
 import com.gts.planner.model.Exam;
 
-<<<<<<< HEAD
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-
-
-=======
->>>>>>> fc8b23d825d7a33415fa341884f7b9f1256d65d5
 public class AddExamActivity extends AppCompatActivity {
 
     private Exam NewExam = new Exam();

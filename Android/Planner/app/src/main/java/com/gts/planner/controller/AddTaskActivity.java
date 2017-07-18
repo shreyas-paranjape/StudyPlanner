@@ -1,14 +1,13 @@
 package com.gts.planner.controller;
 
-<<<<<<< HEAD
+
 import android.database.sqlite.SQLiteDatabase;
-=======
+
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.gts.planner.App;
 import android.database.sqlite.SQLiteDatabase;
->>>>>>> fc8b23d825d7a33415fa341884f7b9f1256d65d5
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -63,10 +62,6 @@ public class AddTaskActivity extends AppCompatActivity {
                 }
         );
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> b9e049f5233fc44ddaba9431676ea3b92c8068ed
 
     private Date DateConverter(String date_string)
     {
@@ -79,8 +74,5 @@ public class AddTaskActivity extends AppCompatActivity {
         }
         return convertedDate;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> b9e049f5233fc44ddaba9431676ea3b92c8068ed
 }
