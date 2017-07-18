@@ -25,11 +25,7 @@ public class LaunchActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             // This call ensures database created before
             // any actual usage and in background
-            //deleteDatabase("studyplanner.db");
-            //SQLiteOpenHelper helper = new DatabaseManager(
-              //      getApplication(), "studyplanner.db"
-            //);
-            //database = helper.getWritableDatabase();
+
             ((App) getApplication()).getDatabase();
             return null;
         }

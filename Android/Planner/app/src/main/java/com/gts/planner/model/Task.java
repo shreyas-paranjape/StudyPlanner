@@ -93,7 +93,7 @@ public class Task {
         values.put("id", getId());
         values.put("title", getTitle());
         values.put("Description", getDescription());
-        values.put("DuDate", getDueDate());
+        values.put("DueDate", getDueDate());
         return values;
     }
 }

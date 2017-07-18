@@ -1,10 +1,14 @@
 package com.gts.planner.controller;
 
+<<<<<<< HEAD
+import android.database.sqlite.SQLiteDatabase;
+=======
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.gts.planner.App;
 import android.database.sqlite.SQLiteDatabase;
+>>>>>>> fc8b23d825d7a33415fa341884f7b9f1256d65d5
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +29,7 @@ import java.util.Locale;
 public class AddTaskActivity extends AppCompatActivity {
 
 
-    private Task NewTask = new Task();
+    private Task NewTask =  new Task();
     private static long count = 1;
     private Button save_button;
     private EditText title;
@@ -40,15 +44,6 @@ public class AddTaskActivity extends AppCompatActivity {
         title = (EditText) findViewById(R.id.task_name);
         description = (EditText) findViewById(R.id.desc_task);
         due_date = (EditText) findViewById(R.id.due_date_task);
-        due_date.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent date_picker = new Intent(AddTaskActivity.this,DatePicker.class);
-                        startActivity(date_picker);
-                    }
-                }
-        );
         date = DateConverter(due_date.getText().toString());
         save_button = (Button) findViewById(R.id.save_task);
         save_button.setOnClickListener(
@@ -62,7 +57,7 @@ public class AddTaskActivity extends AppCompatActivity {
                         database.insert("task",null,NewTask.toValues());
 
                         NewTask.setDueDate(date.getTime());
-
+                        System.out.println(NewTask.toString());
                         finish();
                     }
                 }
