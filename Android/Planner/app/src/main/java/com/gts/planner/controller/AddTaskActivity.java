@@ -1,11 +1,22 @@
 package com.gts.planner.controller;
 
-import android.content.Intent;
+<<<<<<< HEAD
+=======
+
 import android.database.sqlite.SQLiteDatabase;
 
+import android.content.Intent;
+>>>>>>> 96d4257a7c6915293b732ec15880f7009a6e494f
+import android.database.sqlite.SQLiteDatabase;
+
+
 import com.gts.planner.App;
+<<<<<<< HEAD
+
+=======
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
+>>>>>>> 96d4257a7c6915293b732ec15880f7009a6e494f
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,7 +37,7 @@ import java.util.Locale;
 public class AddTaskActivity extends AppCompatActivity implements DatePicker.DateSelectListener {
 
 
-    private Task NewTask = new Task();
+    private Task NewTask =  new Task();
     private static long count = 1;
     private Button save_button;
     private EditText title;
@@ -61,9 +72,15 @@ public class AddTaskActivity extends AppCompatActivity implements DatePicker.Dat
                         NewTask.setTitle(title.getText().toString());
                         NewTask.setDescription(description.getText().toString());
 
+<<<<<<< HEAD
                         SQLiteDatabase database = ((App) getApplication()).getDatabase();
                         database.insert("task", null, NewTask.toValues());
 
+=======
+                        SQLiteDatabase database = ((App)getApplication()).getDatabase();
+                        database.insert("task",null,NewTask.toValues());
+                        //converts the date object into epoch
+>>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
                         NewTask.setDueDate(date.getTime());
                         System.out.println(NewTask.toString());
                         finish();
@@ -71,9 +88,16 @@ public class AddTaskActivity extends AppCompatActivity implements DatePicker.Dat
                 }
         );
     }
+<<<<<<< HEAD
 
 
     private Date DateConverter(String date_string) {
+=======
+//converts the displayed sring in to date object
+    private Date DateConverter(String date_string)
+    {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+>>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
         Date convertedDate = new Date();
         try {
             convertedDate = formatter.parse(date_string);
@@ -83,6 +107,7 @@ public class AddTaskActivity extends AppCompatActivity implements DatePicker.Dat
         return convertedDate;
     }
 
+<<<<<<< HEAD
     @Override
     public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
         final Calendar c = Calendar.getInstance();
@@ -93,3 +118,6 @@ public class AddTaskActivity extends AppCompatActivity implements DatePicker.Dat
         due_date.setText(formatter.format(date));
     }
 }
+=======
+}
+>>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3

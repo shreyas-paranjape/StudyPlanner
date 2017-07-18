@@ -4,12 +4,14 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.Date;
+
 public class Task {
 
     private Long id;
     private Long student_id;
     private String title;
-    private Long DueDate;
+    private Date DueDate;
     private String Description;
     private int Status;
 
@@ -34,12 +36,19 @@ public class Task {
     public void setTitle(String title) {
         this.title = title;
     }
+<<<<<<< HEAD
 
     public void setDueDate(Long date) {
         this.DueDate = date;
     }
 
     public Long getDueDate() {
+=======
+    public void setDueDate(Date date){
+        this.DueDate = date;
+    }
+    public Date getDueDate(){
+>>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
         return this.DueDate;
     }
 
@@ -97,16 +106,24 @@ public class Task {
         task.setId(cursor.getLong(cursor.getColumnIndex("id")));
         task.setTitle(cursor.getString(cursor.getColumnIndex("title")));
         task.setDescription(cursor.getString(cursor.getColumnIndex("Description")));
-        task.setDueDate(cursor.getLong(cursor.getColumnIndex("DueDate")));
+        long epochDueDate = cursor.getLong(cursor.getColumnIndex("DueDate"));
+        task.setDueDate(new Date(epochDueDate));
         return task;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
     public ContentValues toValues() {
         ContentValues values = new ContentValues();
         values.put("id", getId());
         values.put("title", getTitle());
         values.put("Description", getDescription());
-        values.put("DuDate", getDueDate());
+        values.put("DueDate", getDueDate().getTime());
         return values;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
