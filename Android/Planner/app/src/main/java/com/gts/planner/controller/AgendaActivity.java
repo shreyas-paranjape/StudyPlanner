@@ -1,6 +1,7 @@
 package com.gts.planner.controller;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
@@ -13,20 +14,26 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.OvershootInterpolator;
 
+import com.gts.planner.App;
 import com.gts.planner.R;
+import com.gts.planner.view.adapter.EventAdapter;
 
 public class AgendaActivity extends AppCompatActivity {
 
     private boolean isFabMenuOpen;
+    private EventAdapter adapter;
+    private SQLiteDatabase database;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        database = ((App)getApplication()).getDatabase();
         setContentView(R.layout.activity_agenda);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         RecyclerView rvDayEvents = (RecyclerView) findViewById(R.id.rvDayEvents);
         rvDayEvents.setLayoutManager(new LinearLayoutManager(this));
+        rvDayEvents.setAdapter(adapter = new EventAdapter(database));
         Listeners();
     }
 
