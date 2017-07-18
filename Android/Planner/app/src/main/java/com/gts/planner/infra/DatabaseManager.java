@@ -7,8 +7,9 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class DatabaseManager extends SQLiteAssetHelper {
 
-    public DatabaseManager(Context context, String dbName) {
-        super(context, dbName, null, 1);
+    private static final String DATABASE_NAME = "studyplanner.db";
+    public DatabaseManager(Context context, String s) {
+        super(context, DATABASE_NAME, null, 1);
     }
 
 
