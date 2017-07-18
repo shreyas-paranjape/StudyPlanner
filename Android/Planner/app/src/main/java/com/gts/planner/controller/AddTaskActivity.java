@@ -54,7 +54,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
                         SQLiteDatabase database = ((App)getApplication()).getDatabase();
                         database.insert("task",null,NewTask.toValues());
-
+                        //converts the date object into epoch
                         NewTask.setDueDate(date.getTime());
                         System.out.println(NewTask.toString());
                         finish();
@@ -62,7 +62,7 @@ public class AddTaskActivity extends AppCompatActivity {
                 }
         );
     }
-
+//converts the displayed sring in to date object
     private Date DateConverter(String date_string)
     {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
