@@ -40,15 +40,6 @@ public class AddTaskActivity extends AppCompatActivity {
         title = (EditText) findViewById(R.id.task_name);
         description = (EditText) findViewById(R.id.desc_task);
         due_date = (EditText) findViewById(R.id.due_date_task);
-        due_date.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent date_picker = new Intent(AddTaskActivity.this,DatePicker.class);
-                        startActivity(date_picker);
-                    }
-                }
-        );
         date = DateConverter(due_date.getText().toString());
         save_button = (Button) findViewById(R.id.save_task);
         save_button.setOnClickListener(
@@ -62,7 +53,7 @@ public class AddTaskActivity extends AppCompatActivity {
                         database.insert("task",null,NewTask.toValues());
 
                         NewTask.setDueDate(date.getTime());
-
+                        System.out.println(NewTask.toString());
                         finish();
                     }
                 }
