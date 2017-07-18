@@ -1,21 +1,12 @@
 package com.gts.planner.controller;
 
-<<<<<<< HEAD
-=======
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.gts.planner.App;
 import android.database.sqlite.SQLiteDatabase;
-
-import android.annotation.TargetApi;
-import android.icu.text.DateFormat;
-
-import android.icu.text.SimpleDateFormat;
 import android.os.Build;
->>>>>>> c8a5c353eb02d81c2ec583599d0e6cbd35810795
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +14,7 @@ import android.widget.EditText;
 
 import com.gts.planner.App;
 import com.gts.planner.R;
+import com.gts.planner.infra.DatePicker;
 import com.gts.planner.model.Task;
 
 import java.text.ParseException;
@@ -41,14 +33,22 @@ public class AddTaskActivity extends AppCompatActivity {
     private EditText description;
     private Date date;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
         title = (EditText) findViewById(R.id.task_name);
         description = (EditText) findViewById(R.id.desc_task);
         due_date = (EditText) findViewById(R.id.due_date_task);
+        due_date.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent date_picker = new Intent(AddTaskActivity.this,DatePicker.class);
+                        startActivity(date_picker);
+                    }
+                }
+        );
         date = DateConverter(due_date.getText().toString());
         save_button = (Button) findViewById(R.id.save_task);
         save_button.setOnClickListener(
@@ -69,7 +69,7 @@ public class AddTaskActivity extends AppCompatActivity {
         );
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+
     private Date DateConverter(String date_string)
     {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());

@@ -9,10 +9,6 @@ import android.widget.EditText;
 import com.gts.planner.R;
 import com.gts.planner.model.Exam;
 
-/**
- * Created by 7408588 on 7/6/2017.
- */
-
 public class AddExamActivity extends AppCompatActivity {
 
     private Exam NewExam = new Exam();
