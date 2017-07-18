@@ -4,8 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 public class Exam {
-
-
     private Long person;
     private String paper;
     private String examDesc;
