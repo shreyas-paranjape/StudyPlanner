@@ -18,11 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 96d4257a7c6915293b732ec15880f7009a6e494f
 public class AddExamActivity extends AppCompatActivity {
 
     private Exam NewExam = new Exam();

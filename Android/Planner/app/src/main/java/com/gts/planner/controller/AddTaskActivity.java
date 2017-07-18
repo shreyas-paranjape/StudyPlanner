@@ -1,22 +1,17 @@
 package com.gts.planner.controller;
 
-<<<<<<< HEAD
-=======
-
 import android.database.sqlite.SQLiteDatabase;
 
 import android.content.Intent;
->>>>>>> 96d4257a7c6915293b732ec15880f7009a6e494f
+
 import android.database.sqlite.SQLiteDatabase;
 
 
 import com.gts.planner.App;
-<<<<<<< HEAD
 
-=======
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
->>>>>>> 96d4257a7c6915293b732ec15880f7009a6e494f
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -63,7 +58,7 @@ public class AddTaskActivity extends AppCompatActivity {
                         SQLiteDatabase database = ((App)getApplication()).getDatabase();
                         database.insert("task",null,NewTask.toValues());
                         //converts the date object into epoch
-                        NewTask.setDueDate(date.getTime());
+                        NewTask.setDueDate(date);
                         System.out.println(NewTask.toString());
                         finish();
                     }
