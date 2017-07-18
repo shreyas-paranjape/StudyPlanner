@@ -59,7 +59,10 @@ public class AddTaskActivity extends AppCompatActivity {
                 }
         );
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> b9e049f5233fc44ddaba9431676ea3b92c8068ed
 
     private Date DateConverter(String date_string)
     {
@@ -72,5 +75,8 @@ public class AddTaskActivity extends AppCompatActivity {
         }
         return convertedDate;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> b9e049f5233fc44ddaba9431676ea3b92c8068ed
 }

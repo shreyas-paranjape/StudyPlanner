@@ -88,6 +88,8 @@ public class Task {
         task.setDueDate(cursor.getLong(cursor.getColumnIndex("DueDate")));
         return task;
     }
+<<<<<<< HEAD
+=======
     public ContentValues toValues() {
         ContentValues values = new ContentValues();
         values.put("id", getId());
@@ -97,4 +99,5 @@ public class Task {
         return values;
     }
 
+>>>>>>> b9e049f5233fc44ddaba9431676ea3b92c8068ed
 }
