@@ -1,18 +1,7 @@
 package com.gts.planner.controller;
 
-<<<<<<< HEAD
-=======
 import android.database.sqlite.SQLiteDatabase;
-
-import com.gts.planner.App;
-import android.database.sqlite.SQLiteDatabase;
-
-import android.annotation.TargetApi;
-import android.icu.text.DateFormat;
-
-import android.icu.text.SimpleDateFormat;
 import android.os.Build;
->>>>>>> c8a5c353eb02d81c2ec583599d0e6cbd35810795
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
@@ -33,7 +22,7 @@ import java.util.Locale;
 public class AddTaskActivity extends AppCompatActivity {
 
 
-    private Task NewTask = new Task();
+    private Task NewTask =  new Task();
     private static long count = 1;
     private Button save_button;
     private EditText title;
