@@ -21,13 +21,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-<<<<<<< HEAD
 
-public class AddExamActivity extends AppCompatActivity {
-=======
+
 public class AddExamActivity extends AppCompatActivity implements DatePicker.DateSelectListener,
         TimePicker.TimeSelectListener {
->>>>>>> 9ca504ebebae8d99f5b74c4f28f5e79cba3ce459
+
 
     private Exam NewExam = new Exam();
     private Button save ;

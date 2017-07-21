@@ -105,7 +105,9 @@ public class Task {
 
     public ContentValues toValues() {
         ContentValues values = new ContentValues();
-        values.put("id", getId());
+        if(getId() !=  null) {
+            values.put("id", getId());
+        }
         values.put("title", getTitle());
         values.put("Description", getDescription());
         values.put("DueDate", getDueDate());

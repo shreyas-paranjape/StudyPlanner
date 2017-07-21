@@ -1,26 +1,12 @@
 package com.gts.planner.controller;
-
-<<<<<<< HEAD
 import android.database.sqlite.SQLiteDatabase;
-
 import android.content.Intent;
-
-=======
-
-
 import android.database.sqlite.SQLiteDatabase;
-
 import android.content.Intent;
->>>>>>> 9ca504ebebae8d99f5b74c4f28f5e79cba3ce459
 import android.database.sqlite.SQLiteDatabase;
 import com.gts.planner.App;
-
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
-<<<<<<< HEAD
-
-=======
->>>>>>> 9ca504ebebae8d99f5b74c4f28f5e79cba3ce459
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -99,18 +85,15 @@ public class AddTaskActivity extends AppCompatActivity implements DatePicker.Dat
                         NewTask.setDueDate(date.getTime());
 
                         database.insert("task",null,NewTask.toValues());
-<<<<<<< HEAD
+
                         //converts the date object into epoch
-<<<<<<< HEAD
-                        NewTask.setDueDate(date);
-=======
->>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
+                       // NewTask.setDueDate(date);
                         NewTask.setDueDate(date.getTime());
->>>>>>> 7781ef1a29e3005516b784df3e38d231f6baf705
+
                         System.out.println(NewTask.toString());
-=======
+                        setResult(RESULT_OK);
+
                         //converts the date object into epoch format(getTime function)
->>>>>>> 9ca504ebebae8d99f5b74c4f28f5e79cba3ce459
                         finish();
                     }
                 }

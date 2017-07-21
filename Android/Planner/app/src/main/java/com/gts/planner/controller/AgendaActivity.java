@@ -33,7 +33,7 @@ public class AgendaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         RecyclerView rvDayEvents = (RecyclerView) findViewById(R.id.rvDayEvents);
         rvDayEvents.setLayoutManager(new LinearLayoutManager(this));
-      //  rvDayEvents.setAdapter(adapter = new EventAdapter(database));
+       rvDayEvents.setAdapter(adapter = new EventAdapter(database));
         Listeners();
     }
 
@@ -83,6 +83,7 @@ public class AgendaActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //TODO handle result
+        adapter.reload();
     }
 
     @Override
