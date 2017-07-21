@@ -56,8 +56,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         today.set(Calendar.MILLISECOND, 0);
         Calendar tomorrow = Calendar.getInstance();
         tomorrow.add(Calendar.HOUR_OF_DAY,1);
-        String q = "select title from Task where DueDate between " + today.getTime().getTime() +
-                " AND " + tomorrow.getTime().getTime() ;
+        String q = "Select * from Task";//"select title from Task where DueDate between " + today.getTime().getTime() +
+                //" AND " + tomorrow.getTime().getTime() ;
                // " UNION select paper from Exam where sDate BETWEEN  " + today.getTime().getTime() +
                // " AND "+ tomorrow.getTime().getTime();
                 //" UNION select title from Course where sDate between " + today.getTime().getTime()+" AND "
