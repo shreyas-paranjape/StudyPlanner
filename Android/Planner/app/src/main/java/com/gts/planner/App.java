@@ -11,7 +11,7 @@ public class App extends Application {
 
     public SQLiteDatabase getDatabase() {
         if (database == null) {
-            database = new DatabaseManager(this, "studyplanner.db").getWritableDatabase();
+            database = new DatabaseManager(this, "planner.db").getWritableDatabase();
         }
 
         return database;
