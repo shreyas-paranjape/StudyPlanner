@@ -31,7 +31,7 @@
         android:hint="Space for notes\nFor example, chapters to study....."
         android:textAlignment="center"
         android:background="@drawable/textbox_shape"
-        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintBottom_toTopOf="@+id/save_exam"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exam_name"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -52,7 +52,7 @@
         android:background="#eeeeee"
         app:layout_constraintLeft_toLeftOf="parent" />
 
-    <EditText
+    <Button
         android:id="@+id/due_date"
         android:layout_width="244dp"
         android:layout_height="45dp"
@@ -63,12 +63,12 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.649"
+        app:layout_constraintVertical_bias="0.645"
         android:hint="Enter date here!"
         android:textAlignment="center"
         />
 
-    <EditText
+    <Button
         android:id="@+id/due_time"
         android:layout_width="272dp"
         android:layout_height="51dp"
@@ -78,7 +78,7 @@
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintBottom_toTopOf="@+id/save_exam"
         app:layout_constraintTop_toBottomOf="@+id/due_date"
         app:layout_constraintVertical_bias="0.318"
         android:layout_marginTop="16dp" />
