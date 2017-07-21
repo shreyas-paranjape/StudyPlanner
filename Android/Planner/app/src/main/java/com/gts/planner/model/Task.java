@@ -11,7 +11,7 @@ public class Task {
     private Long id;
     private Long student_id;
     private String title;
-    private Date DueDate;
+    private Long DueDate;
     private String Description;
     private int Status;
 
@@ -36,19 +36,12 @@ public class Task {
     public void setTitle(String title) {
         this.title = title;
     }
-<<<<<<< HEAD
 
     public void setDueDate(Long date) {
         this.DueDate = date;
     }
 
     public Long getDueDate() {
-=======
-    public void setDueDate(Date date){
-        this.DueDate = date;
-    }
-    public Date getDueDate(){
->>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
         return this.DueDate;
     }
 
@@ -106,24 +99,16 @@ public class Task {
         task.setId(cursor.getLong(cursor.getColumnIndex("id")));
         task.setTitle(cursor.getString(cursor.getColumnIndex("title")));
         task.setDescription(cursor.getString(cursor.getColumnIndex("Description")));
-        long epochDueDate = cursor.getLong(cursor.getColumnIndex("DueDate"));
-        task.setDueDate(new Date(epochDueDate));
+        task.setDueDate(cursor.getLong(cursor.getColumnIndex("DueDate")));
         return task;
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
     public ContentValues toValues() {
         ContentValues values = new ContentValues();
         values.put("id", getId());
         values.put("title", getTitle());
         values.put("Description", getDescription());
-        values.put("DueDate", getDueDate().getTime());
+        values.put("DueDate", getDueDate());
         return values;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3

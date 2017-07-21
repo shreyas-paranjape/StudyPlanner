@@ -1,17 +1,26 @@
 package com.gts.planner.controller;
 
+<<<<<<< HEAD
 import android.database.sqlite.SQLiteDatabase;
 
 import android.content.Intent;
 
+=======
+
+
 import android.database.sqlite.SQLiteDatabase;
 
-
+import android.content.Intent;
+>>>>>>> 9ca504ebebae8d99f5b74c4f28f5e79cba3ce459
+import android.database.sqlite.SQLiteDatabase;
 import com.gts.planner.App;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ca504ebebae8d99f5b74c4f28f5e79cba3ce459
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,49 +40,66 @@ import java.util.Locale;
 
 public class AddTaskActivity extends AppCompatActivity implements DatePicker.DateSelectListener {
 
+    private Task NewTask =  new Task(); // creating a new class of objects for a new task.
+    private static long count = 1; // Meant to serve as the id but can be deleted if already
+                                    // accounted for.
+    private Button save_button; // button that transfers input ot Database
+    private EditText title; // Title of the Task
+    private Button due_date; // Due date of the task
+    private EditText description; // Notes pertaining to the task
 
-    private Task NewTask =  new Task();
-    private static long count = 1;
-    private Button save_button;
-    private EditText title;
-    private Button due_date;
-    private EditText description;
-    private Date date = new Date();
+    private Date date = new Date(); // Creating a date class
+
+    /* Date Formatter
+       Changeable to MM/dd/yyyy to suit the American Standard
+    */
     private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
+
+        // Casting necessary variables
         title = (EditText) findViewById(R.id.task_name);
         description = (EditText) findViewById(R.id.desc_task);
         due_date = (Button) findViewById(R.id.due_date_task);
+        save_button = (Button) findViewById(R.id.save_task);
+
+        /* Listener for the date selection button. Brings up the date Selector Dialog
+           *referenced from DatePicker.java class */
         due_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePicker picker = new DatePicker();
+
+                // Bundle created to pass current chosen data the Dialog
                 Bundle args = new Bundle();
                 args.putString("sel_date",formatter.format(date));
                 picker.setArguments(args);
                 picker.show(getFragmentManager(),"date_picker");
             }
         });
+
+        // Takes the text version and converts it into a 'date'
         date = DateConverter(due_date.getText().toString());
-        save_button = (Button) findViewById(R.id.save_task);
+
+        /* Setting a listener for the save button which will transfer input to database
+        on clicking it */
         save_button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         NewTask.setTitle(title.getText().toString());
                         NewTask.setDescription(description.getText().toString());
-
-<<<<<<< HEAD
-                        SQLiteDatabase database = ((App) getApplication()).getDatabase();
-                        database.insert("task", null, NewTask.toValues());
-
-=======
                         SQLiteDatabase database = ((App)getApplication()).getDatabase();
+
+                        //converts the date object into epoch format(getTime function)
+                        NewTask.setDueDate(date.getTime());
+
                         database.insert("task",null,NewTask.toValues());
+<<<<<<< HEAD
                         //converts the date object into epoch
 <<<<<<< HEAD
                         NewTask.setDueDate(date);
@@ -82,21 +108,17 @@ public class AddTaskActivity extends AppCompatActivity implements DatePicker.Dat
                         NewTask.setDueDate(date.getTime());
 >>>>>>> 7781ef1a29e3005516b784df3e38d231f6baf705
                         System.out.println(NewTask.toString());
+=======
+                        //converts the date object into epoch format(getTime function)
+>>>>>>> 9ca504ebebae8d99f5b74c4f28f5e79cba3ce459
                         finish();
                     }
                 }
         );
     }
-<<<<<<< HEAD
 
-
-    private Date DateConverter(String date_string) {
-=======
-//converts the displayed sring in to date object
     private Date DateConverter(String date_string)
     {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
->>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
         Date convertedDate = new Date();
         try {
             convertedDate = formatter.parse(date_string);
@@ -106,7 +128,6 @@ public class AddTaskActivity extends AppCompatActivity implements DatePicker.Dat
         return convertedDate;
     }
 
-<<<<<<< HEAD
     @Override
     public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
         final Calendar c = Calendar.getInstance();
@@ -117,6 +138,3 @@ public class AddTaskActivity extends AppCompatActivity implements DatePicker.Dat
         due_date.setText(formatter.format(date));
     }
 }
-=======
-}
->>>>>>> 5ed38bc4ea99ef86d6ae21159881ee89e01fbdb3
