@@ -5,25 +5,28 @@ public class Course {
 
     private Long id;
     private String title;
-    private Long sdate;
-    private Long edate;
-    private String status;
+    private Long Day;
+    private Long time;
+    private String Prof;
+    private String Location;
 
     public Course() {}
 
-    public Course(Long id, Long sdate, Long edate, String status ) {
+    public Course(Long id, Long Day, Long time, String prof, String Location ) {
         this.id = id;
-        this.sdate = sdate;
-        this.edate = edate;
-        this.status = status;
+        this.Day = Day;
+        this.time = time;
+        this.Prof = prof;
+        this.Location = Location;
     }
 
     @Override
     public String toString() {
         return "Course{" +
                 "id=" + id +
-                ", title='" + title + '\'' + ", StartDate=" + sdate +
-                ", EndDate=" + edate + ", Status='" + status + '\'' +
+                ", title='" + title + '\'' + ", Day=" + Day +
+                ", time=" + time + ", Prof='" + Prof +
+                ", Location=' " + Location +'\'' +
                 '}';
     }
 
@@ -58,37 +61,48 @@ public class Course {
         this.title = title;
     }
 
-    public Long getSdate() {
-        return sdate;
+    public Long getDay() {
+        return Day;
     }
 
-    public void setSdate(Long sdate) {
-        this.sdate = sdate;
+    public void setDay(Long Day) {
+        this.Day = Day;
     }
 
-    public Long getEdate() {
-        return edate;
+    public Long getTime() {
+        return time;
     }
 
-    public void setEdate(Long edate) {
-        this.edate = edate;
+    public void setTime(Long time) {
+        this.time = time;
     }
 
-    public String getStatus() {
-        return status;
+    public String getProf() {
+        return Prof;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String location) {
+        Location = location;
+    }
+
+    public void setProf(String prof) {
+        this.Prof = prof;
     }
 
     public static Course fromCursor(Cursor cursor) {
         Course assign = new Course();
         assign.setId(cursor.getLong(cursor.getColumnIndex("id")));
         assign.setTitle(cursor.getString(cursor.getColumnIndex("title")));
-        assign.setSdate(cursor.getLong(cursor.getColumnIndex("sdate")));
-        assign.setEdate(cursor.getLong(cursor.getColumnIndex("edate")));
-        assign.setStatus(cursor.getString(cursor.getColumnIndex("status")));
+        assign.setDay(cursor.getLong(cursor.getColumnIndex("Day")));
+        assign.setTime(cursor.getLong(cursor.getColumnIndex("time")));
+        assign.setProf(cursor.getString(cursor.getColumnIndex("prof")));
+        assign.setLocation(cursor.getString(cursor.getColumnIndex("Location")));
         return assign;
     }
+
+
 }
