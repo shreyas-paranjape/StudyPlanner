@@ -88,7 +88,7 @@ public class AddTaskActivity extends AppCompatActivity implements DatePicker.Dat
 
                         //converts the date object into epoch
                        // NewTask.setDueDate(date);
-                        NewTask.setDueDate(date.getTime());
+                        //NewTask.setDueDate(date.getTime());
 
                         System.out.println(NewTask.toString());
                         setResult(RESULT_OK);
