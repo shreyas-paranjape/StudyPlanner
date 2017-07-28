@@ -79,6 +79,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
     static class EventHolder extends RecyclerView.ViewHolder {
         private TextView tvtitle;
+
         public EventHolder(View itemView) {
             super(itemView);
             tvtitle = (TextView) itemView.findViewById(R.id.tvTitle);
