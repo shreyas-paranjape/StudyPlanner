@@ -1,29 +1,37 @@
 package com.gts.planner.model;
+import android.content.ContentValues;
 import android.database.Cursor;
 
 public class Course {
 
     private Long id;
     private String title;
-    private Long sdate;
-    private Long edate;
-    private String status;
+    private Long Day;
+    private Long sTime;
+    private Long eTime;
+    private String Prof;
+    private String Location;
+    private String Desc;
 
     public Course() {}
 
-    public Course(Long id, Long sdate, Long edate, String status ) {
+    public Course(Long id, Long Day, Long sTime, Long eTime, String prof, String Location, String Desc ) {
         this.id = id;
-        this.sdate = sdate;
-        this.edate = edate;
-        this.status = status;
+        this.Day = Day;
+        this.sTime = sTime;
+        this.eTime = eTime;
+        this.Prof = prof;
+        this.Location = Location;
+        this.Desc = Desc;
     }
 
     @Override
     public String toString() {
         return "Course{" +
                 "id=" + id +
-                ", title='" + title + '\'' + ", StartDate=" + sdate +
-                ", EndDate=" + edate + ", Status='" + status + '\'' +
+                ", title='" + title + '\'' + ", Day=" + Day +
+                ", sTime=" + sTime + ", eTime=" + eTime + ", Prof='" + Prof +
+                ", Location=' " + Location + ", Description=' " + Desc + '\'' +
                 '}';
     }
 
@@ -58,37 +66,66 @@ public class Course {
         this.title = title;
     }
 
-    public Long getSdate() {
-        return sdate;
+    public Long getDay() {
+        return Day;
     }
 
-    public void setSdate(Long sdate) {
-        this.sdate = sdate;
+    public void setDay(Long Day) {
+        this.Day = Day;
     }
 
-    public Long getEdate() {
-        return edate;
+    public Long getsTime() {
+        return sTime;
     }
 
-    public void setEdate(Long edate) {
-        this.edate = edate;
+    public void setsTime(Long sTime) {
+        this.sTime = sTime;
     }
 
-    public String getStatus() {
-        return status;
+    public Long geteTime() {
+        return eTime;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void seteTime(Long eTime) {
+        this.eTime = eTime;
+    }
+
+    public String getProf() {
+        return Prof;
+    }
+
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String location) {
+        Location = location;
+    }
+
+    public String getDesc() {
+        return Desc;
+    }
+
+    public void setDesc(String desc) {
+        Desc = desc;
+    }
+
+    public void setProf(String prof) {
+        this.Prof = prof;
+
     }
 
     public static Course fromCursor(Cursor cursor) {
         Course assign = new Course();
         assign.setId(cursor.getLong(cursor.getColumnIndex("id")));
         assign.setTitle(cursor.getString(cursor.getColumnIndex("title")));
-        assign.setSdate(cursor.getLong(cursor.getColumnIndex("sdate")));
-        assign.setEdate(cursor.getLong(cursor.getColumnIndex("edate")));
-        assign.setStatus(cursor.getString(cursor.getColumnIndex("status")));
+        assign.setDay(cursor.getLong(cursor.getColumnIndex("Day")));
+        assign.setsTime(cursor.getLong(cursor.getColumnIndex("sTime")));
+        assign.seteTime(cursor.getLong(cursor.getColumnIndex("eTime")));
+        assign.setProf(cursor.getString(cursor.getColumnIndex("prof")));
+        assign.setLocation(cursor.getString(cursor.getColumnIndex("Location")));
+        assign.setDesc(cursor.getString(cursor.getColumnIndex("Desc")));
         return assign;
     }
+
 }

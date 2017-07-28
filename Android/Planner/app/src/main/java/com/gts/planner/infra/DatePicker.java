@@ -46,6 +46,8 @@ public class DatePicker extends DialogFragment implements DatePickerDialog.OnDat
 
     public static interface DateSelectListener {
         void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth);
+
+        void onTimeSet(android.widget.TimePicker view, int hour, int minute);
     }
 
 }
