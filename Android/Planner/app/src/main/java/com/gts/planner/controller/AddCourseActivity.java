@@ -1,19 +1,23 @@
-package com.gts.planner.controller;
-
+ package com.gts.planner.controller;
 import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import com.gts.planner.App;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.gts.planner.infra.DatePicker;
-import com.gts.planner.infra.TimePicker;
 import com.gts.planner.App;
 import com.gts.planner.R;
+import com.gts.planner.infra.DatePicker;
 import com.gts.planner.model.Course;
-
+import com.gts.planner.model.Task;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,83 +25,100 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+//assuming one class per day only
+
+public class AddCourseActivity extends AppCompatActivity implements DatePicker.DateSelectListener {
+
+    private Course NewCourse =  new Course(); // creating a new class of objects for a new course.
+    private static long count = 1; // Meant to serve as the id but can be deleted if already
+    // accounted for.
+    private Button save_button; // button that transfers input ot Database
+    private EditText title; // Title of the Course
+    private Button day; // Due day of the task
+    private Date sTime; //Start time of the course
+    private Button eTime; //End time of the course
+    private EditText desc; // Notes pertaining to the task
+    private EditText prof; // course professor name
+    private EditText location; // course location
+
+    private Date date = new Date(); // Creating a date class
+
+    /* Date Formatter
+       Changeable to MM/dd/yyyy to suit the American Standard
+    */
+    private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 
 
-public abstract class AddCourseActivity extends AppCompatActivity implements DayPicker.DateSelectListener,
-        TimePicker.TimeSelectListener {
-
-
-    private Course NewCourse = new Course();
-    private Button save ;
-    private EditText course_title;
-    private Button course_day;
-    private EditText course_prof;
-    private EditText course_location;
-    private Button course_time;
-    private Date courseDateTime;
-    Bundle args = new Bundle();
-
-
-
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-    SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
-
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_course);
 
-        course_title = (EditText) findViewById(R.id.course_title);
-        course_prof = (EditText) findViewById(R.id.prof_course);
-        course_time =(Button) findViewById(R.id.due_time);
-        course_time.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        TimePicker tPicker = new TimePicker();
-                        args.putString("sel_time",timeFormat.format(courseDateTime));
-                        tPicker.setArguments(args);
-                        tPicker.show(getFragmentManager(), "time_picker");
-                    }
-                }
-        );
-        course_day= (Button) findViewById(R.id.due_date);
-        course_day.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        DatePicker dPicker = new DatePicker();
+        // Casting necessary variables
+        title = (EditText) findViewById(R.id.course_name);
+        desc = (EditText) findViewById(R.id.desc_course);
+        prof = (EditText) findViewById(R.id.prof_course);
+        location = (EditText) findViewById(R.id.location_course);
+        day = (Button) findViewById(R.id.day_course);
+        sTime = (Button) findViewById(R.id.sTime_course);
+        eTime = (Button) findViewById(R.id.eTime_course);
+        save_button = (Button) findViewById(R.id.save_task);
 
-                        // Bundle created to pass current chosen data the Dialog
-                        args.putString("sel_date",dateFormat.format(courseDateTime));
-                        dPicker.setArguments(args);
-                        dPicker.show(getFragmentManager(),"date_picker");
-                    }
-                }
-        );
+        /* Listener for the date selection button. Brings up the date Selector Dialog
+           *referenced from DatePicker.java class */
+         day.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePicker picker = new DatePicker();
 
-        courseDateTime = DateConverter(course_day.getText().toString());
-        save = (Button) findViewById(R.id.save_course);
-        save.setOnClickListener(
+                // Bundle created to pass current chosen data the Dialog
+                Bundle args = new Bundle();
+                args.putString("sel_date",formatter.format(date));
+                picker.setArguments(args);
+                picker.show(getFragmentManager(),"date_picker");
+            }
+        });
+
+        // Takes the text version and converts it into a 'date'
+        date = DateConverter(sTime.toString());
+
+
+        /* Setting a listener for the save button which will transfer input to database
+        on clicking it */
+       save_button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        NewCourse.setTitle(course_title.getText().toString());
-                        NewCourse.setDay(courseDateTime.getTime());
-                        NewCourse.setLocation(course_location.getText().toString());
+                        NewCourse.setTitle(title.getText().toString());
+                        NewCourse.setDesc(desc.getText().toString());
+                        NewCourse.setProf(prof.getText().toString());
+                        NewCourse.setLocation(location.getText().toString());
                         SQLiteDatabase database = ((App)getApplication()).getDatabase();
-                        database.insert("Course",null,NewCourse.toValues());
+
+                        //converts the date object into epoch format(getTime function)
+                        NewCourse.setDay(date.getTime());
+
+                        database.insert("task",null,NewCourse.toValues());
+
+                        //converts the date object into epoch
+                        // NewTask.setDueDate(date);
+                        //NewTask.setDueDate(date.getTime());
+
+                        System.out.println(NewCourse.toString());
+                        setResult(RESULT_OK);
+
+                        //converts the date object into epoch format(getTime function)
                         finish();
                     }
                 }
         );
-
     }
 
     private Date DateConverter(String date_string)
     {
         Date convertedDate = new Date();
         try {
-            convertedDate = dateFormat.parse(date_string);
+            convertedDate = formatter.parse(date_string);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -105,21 +126,22 @@ public abstract class AddCourseActivity extends AppCompatActivity implements Day
     }
 
     @Override
-    public void onDaySet(android.widget.DayPicker view, int day){
+    public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
         final Calendar c = Calendar.getInstance();
-        c.setTime(courseDateTime);
-        c.set(Calendar.DAY_OF_WEEK, day);
-        courseDateTime = c.getTime();
-        course_day.setText(dateFormat.format(courseDateTime));
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        date = c.getTime();
+        day.setText(formatter.format(date));
     }
 
     @Override
     public void onTimeSet(android.widget.TimePicker view, int hour, int minute){
         final Calendar c = Calendar.getInstance();
-        c.setTime(courseDateTime);
+        c.setTime(date);
         c.set(Calendar.HOUR_OF_DAY, hour);
         c.set(Calendar.MINUTE, minute);
-        courseDateTime = c.getTime();
-        course_time.setText(timeFormat.format(courseDateTime));
+        date = c.getTime();
+        sTime.setText(timeFormat.format(date));
     }
 }

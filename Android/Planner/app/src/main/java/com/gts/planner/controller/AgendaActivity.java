@@ -67,7 +67,7 @@ public class AgendaActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.courseContainer).setOnClickListener(new View.OnClickListener(){
+       findViewById(R.id.courseContainer).setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {

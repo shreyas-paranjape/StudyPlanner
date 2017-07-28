@@ -1,4 +1,5 @@
 package com.gts.planner.model;
+import android.content.ContentValues;
 import android.database.Cursor;
 
 public class Course {
@@ -6,18 +7,22 @@ public class Course {
     private Long id;
     private String title;
     private Long Day;
-    private Long time;
+    private Long sTime;
+    private Long eTime;
     private String Prof;
     private String Location;
+    private String Desc;
 
     public Course() {}
 
-    public Course(Long id, Long Day, Long time, String prof, String Location ) {
+    public Course(Long id, Long Day, Long sTime, Long eTime, String prof, String Location, String Desc ) {
         this.id = id;
         this.Day = Day;
-        this.time = time;
+        this.sTime = sTime;
+        this.eTime = eTime;
         this.Prof = prof;
         this.Location = Location;
+        this.Desc = Desc;
     }
 
     @Override
@@ -25,8 +30,8 @@ public class Course {
         return "Course{" +
                 "id=" + id +
                 ", title='" + title + '\'' + ", Day=" + Day +
-                ", time=" + time + ", Prof='" + Prof +
-                ", Location=' " + Location +'\'' +
+                ", sTime=" + sTime + ", eTime=" + eTime + ", Prof='" + Prof +
+                ", Location=' " + Location + ", Description=' " + Desc + '\'' +
                 '}';
     }
 
@@ -69,12 +74,20 @@ public class Course {
         this.Day = Day;
     }
 
-    public Long getTime() {
-        return time;
+    public Long getsTime() {
+        return sTime;
     }
 
-    public void setTime(Long time) {
-        this.time = time;
+    public void setsTime(Long sTime) {
+        this.sTime = sTime;
+    }
+
+    public Long geteTime() {
+        return eTime;
+    }
+
+    public void seteTime(Long eTime) {
+        this.eTime = eTime;
     }
 
     public String getProf() {
@@ -89,8 +102,17 @@ public class Course {
         Location = location;
     }
 
+    public String getDesc() {
+        return Desc;
+    }
+
+    public void setDesc(String desc) {
+        Desc = desc;
+    }
+
     public void setProf(String prof) {
         this.Prof = prof;
+
     }
 
     public static Course fromCursor(Cursor cursor) {
@@ -98,11 +120,12 @@ public class Course {
         assign.setId(cursor.getLong(cursor.getColumnIndex("id")));
         assign.setTitle(cursor.getString(cursor.getColumnIndex("title")));
         assign.setDay(cursor.getLong(cursor.getColumnIndex("Day")));
-        assign.setTime(cursor.getLong(cursor.getColumnIndex("time")));
+        assign.setsTime(cursor.getLong(cursor.getColumnIndex("sTime")));
+        assign.seteTime(cursor.getLong(cursor.getColumnIndex("eTime")));
         assign.setProf(cursor.getString(cursor.getColumnIndex("prof")));
         assign.setLocation(cursor.getString(cursor.getColumnIndex("Location")));
+        assign.setDesc(cursor.getString(cursor.getColumnIndex("Desc")));
         return assign;
     }
-
 
 }
