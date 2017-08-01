@@ -31,13 +31,10 @@
         android:hint="Space for notes\nFor example, chapters to study....."
         android:textAlignment="center"
         android:background="@drawable/textbox_shape"
-        app:layout_constraintBottom_toTopOf="@+id/save_exam"
+        app:layout_constraintBottom_toTopOf="@+id/day_course"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exam_name"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintVertical_bias="0.383"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="209dp" />
+        app:layout_constraintTop_toBottomOf="@+id/prof_course" />
 
     <EditText
         android:id="@+id/prof_course"
@@ -46,14 +43,12 @@
         android:hint="Enter Prof Name! "
         android:textAlignment="center"
         android:background="@drawable/textbox_shape"
-        app:layout_constraintBottom_toTopOf="@+id/save_exam"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exam_name"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintVertical_bias="0.007"
-        android:layout_marginTop="12dp"
-        app:layout_constraintHorizontal_bias="0.068"
-        android:layout_marginBottom="318dp" />
+        app:layout_constraintBottom_toTopOf="@+id/desc_course"
+        app:layout_constraintTop_toBottomOf="@+id/course_name"
+        app:layout_constraintVertical_bias="0.387"
+        app:layout_constraintRight_toLeftOf="@+id/location_course"
+        app:layout_constraintHorizontal_bias="0.592" />
 
     <EditText
         android:id="@+id/location_course"
@@ -62,8 +57,11 @@
         android:hint="Enter the location! "
         android:textAlignment="center"
         android:background="@drawable/textbox_shape"
-        tools:layout_editor_absoluteY="79dp"
-        tools:layout_editor_absoluteX="177dp" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/desc_course"
+        app:layout_constraintTop_toBottomOf="@+id/course_name"
+        app:layout_constraintVertical_bias="0.517"
+        app:layout_constraintLeft_toRightOf="@+id/prof_course" />
 
     <Button
         android:id="@+id/save_exam"
@@ -82,18 +80,16 @@
     <Button
         android:id="@+id/day_course"
         android:layout_width="244dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:background="@drawable/textbox_shape"
         android:inputType="date"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59"
         android:hint="Enter day here!"
         android:textAlignment="center"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/sTime_course"
+        app:layout_constraintTop_toBottomOf="@+id/desc_course" />
 
     <Button
         android:id="@+id/sTime_course"
@@ -105,11 +101,8 @@
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/save_exam"
-        app:layout_constraintTop_toBottomOf="@+id/due_date"
-        app:layout_constraintVertical_bias="0.0"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="80dp" />
+        app:layout_constraintBottom_toTopOf="@+id/eTime_course"
+        app:layout_constraintTop_toBottomOf="@+id/day_course" />
 
     <Button
         android:id="@+id/eTime_course"
@@ -122,10 +115,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/save_exam"
-        app:layout_constraintTop_toBottomOf="@+id/due_date"
-        app:layout_constraintVertical_bias="0.892"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="14dp" />
+        app:layout_constraintTop_toBottomOf="@+id/sTime_course" />
 
 
 </android.support.constraint.ConstraintLayout>
