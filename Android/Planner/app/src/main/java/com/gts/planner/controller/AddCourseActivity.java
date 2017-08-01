@@ -34,7 +34,7 @@ public class AddCourseActivity extends AppCompatActivity  {
 
     private Course NewCourse = new Course(); // creating a new class of objects for a new course.
     private static long count = 1; // Meant to serve as the id but can be deleted if already
-    // accounted for.
+                                    // accounted for.
     private Button save_button; // button that transfers input ot Database
     private EditText title; // Title of the Course
     private Button day; // Due day of the task
@@ -72,12 +72,16 @@ public class AddCourseActivity extends AppCompatActivity  {
                         args.putStringArrayList("days", mSelectedDays);
                         day_picker.setArguments(args);
                         day_picker.show(getFragmentManager(), "dayPicker");
-//                        mSelectedDays = getIntent().getExtras().getStringArrayList("days");
+                        try {
+                            mSelectedDays = args.getStringArrayList("days");
+                        }catch (NullPointerException e){
+                            mSelectedDays = new ArrayList();
+                        }
                     }
                 }
         );
 
-
+        System.out.println(mSelectedDays);
         sTime = (Button) findViewById(R.id.sTime_course);
         eTime = (Button) findViewById(R.id.eTime_course);
         save_button = (Button) findViewById(R.id.save_task);
