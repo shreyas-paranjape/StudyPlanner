@@ -78,15 +78,7 @@ public class AgendaActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.cardholder).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-
-    }
+       }
 
 
 
