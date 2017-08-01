@@ -64,7 +64,7 @@
         app:layout_constraintLeft_toRightOf="@+id/prof_course" />
 
     <Button
-        android:id="@+id/save_exam"
+        android:id="@+id/save_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
@@ -83,7 +83,6 @@
         android:layout_height="48dp"
         android:ems="10"
         android:background="@drawable/textbox_shape"
-        android:inputType="date"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:hint="Enter day here!"
@@ -91,12 +90,11 @@
         app:layout_constraintBottom_toTopOf="@+id/sTime_course"
         app:layout_constraintTop_toBottomOf="@+id/desc_course" />
 
-    <Button
+    <TimePicker
         android:id="@+id/sTime_course"
         android:layout_width="272dp"
         android:layout_height="51dp"
         android:background="@drawable/textbox_shape"
-        android:inputType="time"
         android:hint="Enter the start time of the course here!"
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -114,7 +112,7 @@
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/save_exam"
+        app:layout_constraintBottom_toTopOf="@+id/save_course"
         app:layout_constraintTop_toBottomOf="@+id/sTime_course" />
 
 

@@ -6,7 +6,7 @@ public class Course {
 
     private Long id;
     private String title;
-    private Long Day;
+    private String Day;
     private Long sTime;
     private Long eTime;
     private String Prof;
@@ -15,7 +15,7 @@ public class Course {
 
     public Course() {}
 
-    public Course(Long id, Long Day, Long sTime, Long eTime, String prof, String Location, String Desc ) {
+    public Course(Long id, String Day, Long sTime, Long eTime, String prof, String Location, String Desc ) {
         this.id = id;
         this.Day = Day;
         this.sTime = sTime;
@@ -66,11 +66,11 @@ public class Course {
         this.title = title;
     }
 
-    public Long getDay() {
+    public String getDay() {
         return Day;
     }
 
-    public void setDay(Long Day) {
+    public void setDay(String Day) {
         this.Day = Day;
     }
 
@@ -119,7 +119,7 @@ public class Course {
         Course assign = new Course();
         assign.setId(cursor.getLong(cursor.getColumnIndex("id")));
         assign.setTitle(cursor.getString(cursor.getColumnIndex("title")));
-        assign.setDay(cursor.getLong(cursor.getColumnIndex("Day")));
+        assign.setDay(cursor.getString(cursor.getColumnIndex("Day")));
         assign.setsTime(cursor.getLong(cursor.getColumnIndex("sTime")));
         assign.seteTime(cursor.getLong(cursor.getColumnIndex("eTime")));
         assign.setProf(cursor.getString(cursor.getColumnIndex("prof")));

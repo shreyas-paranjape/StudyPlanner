@@ -13,9 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-/**
- * Created by 7408588 on 7/14/2017.
- */
 
 public class DatePicker extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 

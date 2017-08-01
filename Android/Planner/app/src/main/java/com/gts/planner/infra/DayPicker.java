@@ -18,9 +18,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-/**
- * Created by 7408588 on 7/30/2017.
- */
+
 
 public class DayPicker extends DialogFragment{
 

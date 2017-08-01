@@ -21,6 +21,7 @@ import com.gts.planner.infra.DayPicker;
 import com.gts.planner.model.Course;
 import com.gts.planner.model.Task;
 
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class AddCourseActivity extends AppCompatActivity  {
     private Button save_button; // button that transfers input ot Database
     private EditText title; // Title of the Course
     private Button day; // Due day of the task
-    private Button sTime; //Start time of the course
+    private TimePicker sTime; //Start time of the course
     private Button eTime; //End time of the course
     private EditText desc; // Notes pertaining to the task
     private EditText prof; // course professor name
@@ -78,10 +79,19 @@ public class AddCourseActivity extends AppCompatActivity  {
         );
 
 
-        sTime = (Button) findViewById(R.id.sTime_course);
+        sTime = (TimePicker) findViewById(R.id.sTime_course);
+        Integer hour, minutes;
+        if (Build.VERSION.SDK_INT >= 23 ) {
+            hour = sTime.getHour();
+            minutes = sTime.getMinute();
+        } else {
+            hour = sTime.getCurrentHour();
+            minutes = sTime.getCurrentMinute();
+        }
+        final Time time = new Time(hour, minutes, 0);
         eTime = (Button) findViewById(R.id.eTime_course);
-        save_button = (Button) findViewById(R.id.save_task);
-      /*  save_button.setOnClickListener(
+        save_button = (Button) findViewById(R.id.save_course);
+        save_button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -92,8 +102,8 @@ public class AddCourseActivity extends AppCompatActivity  {
                         SQLiteDatabase database = ((App) getApplication()).getDatabase();
 
                         //converts the date object into epoch format(getTime function)
-                        NewCourse.setDay(date.getTime());
-
+                        NewCourse.setDay(mSelectedDays.toString());
+                        NewCourse.setsTime(time.getTime());
 
                         //converts the date object into epoch
                         // NewTask.setDueDate(date);
@@ -106,7 +116,9 @@ public class AddCourseActivity extends AppCompatActivity  {
                         finish();
                     }
                 }
-        );*/
+        );
     }
+
+
     }
 
