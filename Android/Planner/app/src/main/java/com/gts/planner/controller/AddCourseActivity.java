@@ -82,7 +82,6 @@ public class AddCourseActivity extends AppCompatActivity  {
                 }
         );
 
-<<<<<<< HEAD
 
         sTime = (TimePicker) findViewById(R.id.sTime_course);
         Integer hour, minutes;
@@ -94,10 +93,7 @@ public class AddCourseActivity extends AppCompatActivity  {
             minutes = sTime.getCurrentMinute();
         }
         final Time time = new Time(hour, minutes, 0);
-=======
         System.out.println(mSelectedDays);
-        sTime = (Button) findViewById(R.id.sTime_course);
->>>>>>> a7ae90e06a4e3720ba43f730378d44fd3b83ef75
         eTime = (Button) findViewById(R.id.eTime_course);
         save_button = (Button) findViewById(R.id.save_course);
         save_button.setOnClickListener(
