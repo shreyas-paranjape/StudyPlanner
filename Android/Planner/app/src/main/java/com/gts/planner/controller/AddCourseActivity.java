@@ -81,7 +81,7 @@ public class AddCourseActivity extends AppCompatActivity  {
                 }
         );
 
-        System.out.println(mSelectedDays);
+
         sTime = (Button) findViewById(R.id.sTime_course);
         eTime = (Button) findViewById(R.id.eTime_course);
         save_button = (Button) findViewById(R.id.save_task);
