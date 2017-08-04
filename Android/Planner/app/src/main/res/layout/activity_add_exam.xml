@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="#b2dfde"
+    android:background="@drawable/orangesky"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,6 +14,7 @@
         android:hint="  Enter the Exam Name here! "
         android:textAlignment="center"
         android:textSize="25sp"
+        android:alpha="0.89"
         android:background="@drawable/textbox_shape"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
@@ -36,7 +37,9 @@
         app:layout_constraintTop_toBottomOf="@+id/exam_name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintVertical_bias="0.078"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp"
+        android:alpha="0.89"/>
+
 
     <Button
         android:id="@+id/save_exam"
@@ -49,7 +52,7 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="46dp"
-        android:background="#eeeeee"
+        android:background="#ffffff"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
@@ -66,6 +69,7 @@
         app:layout_constraintVertical_bias="0.645"
         android:hint="Enter date here!"
         android:textAlignment="center"
+        android:alpha="0.89"
         />
 
     <Button
@@ -81,7 +85,8 @@
         app:layout_constraintBottom_toTopOf="@+id/save_exam"
         app:layout_constraintTop_toBottomOf="@+id/due_date"
         app:layout_constraintVertical_bias="0.318"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:alpha="0.89"/>
 
 
 </android.support.constraint.ConstraintLayout>
