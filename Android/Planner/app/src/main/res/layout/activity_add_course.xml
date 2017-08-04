@@ -90,7 +90,7 @@
         app:layout_constraintBottom_toTopOf="@+id/sTime_course"
         app:layout_constraintTop_toBottomOf="@+id/desc_course" />
 
-    <TimePicker
+    <Button
         android:id="@+id/sTime_course"
         android:layout_width="272dp"
         android:layout_height="51dp"
@@ -107,7 +107,6 @@
         android:layout_width="272dp"
         android:layout_height="51dp"
         android:background="@drawable/textbox_shape"
-        android:inputType="time"
         android:hint="Enter the end time of the course here!"
         android:textAlignment="center"
         app:layout_constraintLeft_toLeftOf="parent"
