@@ -100,7 +100,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/eTime_course"
-        app:layout_constraintTop_toBottomOf="@+id/day_course" />
+        app:layout_constraintTop_toBottomOf="@+id/day_course"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/eTime_course"
