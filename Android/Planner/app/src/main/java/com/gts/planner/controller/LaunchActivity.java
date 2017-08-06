@@ -44,7 +44,7 @@ public class LaunchActivity extends AppCompatActivity {
                     startActivity(activityDashBoard);
                     finish();
                 }
-            }, 1000);
+            }, 5000);
         }
     }
 }
