@@ -1,5 +1,6 @@
 package com.gts.planner.infra;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -25,27 +26,29 @@ public class DayPicker extends DialogFragment{
 
 
     private ArrayList mSelectedDays; // The array that stores the selected days
-    private ArrayList mPreviousState = new ArrayList(); // The previously saved state
-                                                        // of the mSelectedDays array
+    private ArrayList mLastSavedState;
     private Bundle data; // A heap of data to be passed into the parent Activity
     private String[] days_of_the_week = {"Monday", "Tuesday", "Wednesday", "Thursday",
             "Friday"}; // Array containing the days of the week
     private boolean[] selected_days = {false,false,false,false,false};
 
+    DayPickerListener listener;
+
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         data = getArguments();
-
+        mSelectedDays = new ArrayList();
 
         // Catching for NullPointer Exception
       try{
-          mSelectedDays = data.getStringArrayList("days");
+          mLastSavedState = data.getStringArrayList("days");
       } catch(NullPointerException e){
-          mSelectedDays = new ArrayList();
+          mLastSavedState = new ArrayList();
       }
 
-        SelectionChecker(mSelectedDays, selected_days);
+        SelectionChecker(mLastSavedState, selected_days);
 
         //creating the dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -73,10 +76,12 @@ public class DayPicker extends DialogFragment{
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                mPreviousState = mSelectedDays; // recording the last modified state
-
                 //putting the chosen dates into a bundle
                 data.putStringArrayList("days", mSelectedDays);
+                mLastSavedState = mSelectedDays;
+                Intent intent = new Intent();
+                intent.putExtra("data", data);
+                listener.onDialogPositiveClick(DayPicker.this);
             }
         });
 
@@ -84,13 +89,13 @@ public class DayPicker extends DialogFragment{
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 mSelectedDays.clear();
+                listener.onDialogNegativeClick(DayPicker.this);
             }
         });
 
-
-
         return builder.create();
     }
+
 
     private void SelectionChecker(ArrayList SelectedDays, boolean[] selected_days) {
        if(SelectedDays.indexOf(0) >= 0 )
@@ -105,4 +110,20 @@ public class DayPicker extends DialogFragment{
             selected_days[4] = true;
         return;
     }
+
+    public static interface DayPickerListener{
+        void onDialogPositiveClick(DialogFragment dialog);
+        void onDialogNegativeClick(DialogFragment dialog);
+    }
+
+
+    @Override
+    public void onAttach(Activity activity){
+        super.onAttach(activity);
+        try {
+            // Instantiate the NoticeDialogListener so we can send events to the host
+            listener = (DayPickerListener) activity;
+        } catch (ClassCastException e){}
+    }
+
 }

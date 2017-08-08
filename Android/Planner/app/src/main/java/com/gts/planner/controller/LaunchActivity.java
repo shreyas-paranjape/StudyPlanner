@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.gts.planner.App;
@@ -33,11 +34,17 @@ public class LaunchActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            Intent activityDashBoard = new Intent(
-                    LaunchActivity.this, AgendaActivity.class
-            );
-            startActivity(activityDashBoard);
-            finish();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent activityDashBoard = new Intent(
+                            LaunchActivity.this, AgendaActivity.class
+                    );
+                    startActivity(activityDashBoard);
+                    finish();
+                }
+            }, 1000);
         }
     }
 }
