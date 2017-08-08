@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:background="#ffffff">
 
     <ImageView
@@ -31,11 +30,6 @@
         app:layout_constraintVertical_bias="0.247"
         app:layout_constraintHorizontal_bias="0.502"
         android:id="@+id/textView" />
-=======
-    android:background="#ffffff"
-    tools:layout_editor_absoluteY="25dp"
-    tools:layout_editor_absoluteX="0dp">
->>>>>>> 046566352b31d0cc7c413fe5eb7b607ce82f6d4b
 
    <ImageView
        android:layout_width="446dp"

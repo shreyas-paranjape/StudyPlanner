@@ -28,7 +28,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     public EventAdapter(SQLiteDatabase database) {
         this.database = database;
 
-        eventCursor = database.rawQuery(query(),
+        eventCursor = database.rawQuery(
+                query(new Date()),
                 new String[]{}
         );
     }
@@ -44,28 +45,32 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     @Override
     public void onBindViewHolder(EventHolder holder, int position) {
         if (eventCursor.moveToPosition(position)) {
-            Task task =Task.fromCursor(eventCursor);
+            Task task = new Task();
+            task.setTitle(eventCursor.getString(eventCursor.getColumnIndex("title")));
+            //Task task = Task.fromCursor(eventCursor);
             holder.initView(task);
         }
     }
-    public String query(){
+    public String query(Date aDate){
         Calendar today = Calendar.getInstance();
+        if( aDate != null)
+        {today.setTime(aDate);}
         today.set(Calendar.HOUR, 0);
         today.set(Calendar.MINUTE, 0);
         today.set(Calendar.SECOND, 0);
         today.set(Calendar.MILLISECOND, 0);
-        Calendar tomorrow = Calendar.getInstance();
-
-       // tomorrow.add(Calendar.HOUR_OF_DAY,1);
-
-        String q = "Select * from Task";//"select title from Task where DueDate between " + today.getTime().getTime() +
-                //" AND " + tomorrow.getTime().getTime() ;
-
+        Calendar tomorrow = today;
         tomorrow.add(Calendar.DAY_OF_MONTH,1);
         tomorrow.set(Calendar.HOUR, 0);
         tomorrow.set(Calendar.MINUTE, 0);
         tomorrow.set(Calendar.SECOND, 0);
         tomorrow.set(Calendar.MILLISECOND, 0);
+       // tomorrow.add(Calendar.HOUR_OF_DAY,1);
+
+        String q = "select title from Task where DueDate between " + today.getTime().getTime() +
+                " AND " + tomorrow.getTime().getTime() ;
+
+
       //  String q = "select * from Task"; //where DueDate between " +today.getTime().getTime()+ " AND "+tomorrow.getTime().getTime();
                 //+ today.getTime().getTime() +
               //  " AND " + tomorrow.getTime().getTime() ;
@@ -75,9 +80,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         // + tomorrow.getTime().getTime();
         return q;
     }
-    public void reload(){
+    public void reload(Date aDate){
         eventCursor.close();
-        eventCursor =   database.rawQuery( query(),
+        eventCursor =   database.rawQuery(
+                query(aDate),
                 new String[]{}
         );
         notifyDataSetChanged();

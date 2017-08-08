@@ -137,8 +137,6 @@ public class AddCourseActivity extends AppCompatActivity implements TimePicker.T
                 }
         );
     }
-<<<<<<< HEAD
-=======
 
     /*
     This method converts the the codes present in the <var>data<var> <code>ArrayList<code> to
@@ -172,7 +170,6 @@ public class AddCourseActivity extends AppCompatActivity implements TimePicker.T
             return null;
         }
 
->>>>>>> 046566352b31d0cc7c413fe5eb7b607ce82f6d4b
     }
 
     // This is the interface that communicates with the <class>TimePicker<class> dialog

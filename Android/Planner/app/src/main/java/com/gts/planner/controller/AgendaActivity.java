@@ -16,12 +16,19 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.OvershootInterpolator;
+import android.widget.CalendarView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gts.planner.App;
 import com.gts.planner.R;
+import com.gts.planner.infra.DatePicker;
 import com.gts.planner.infra.RecyclerItemClickListener;
 import com.gts.planner.view.adapter.EventAdapter;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class AgendaActivity extends AppCompatActivity {
 
@@ -29,7 +36,8 @@ public class AgendaActivity extends AppCompatActivity {
     private EventAdapter adapter;
     private SQLiteDatabase database;
     private RecyclerView rvDayEvents;
-
+    private Date date1;
+    private CalendarView cv;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +48,18 @@ public class AgendaActivity extends AppCompatActivity {
         rvDayEvents = (RecyclerView) findViewById(R.id.rvDayEvents);
         rvDayEvents.setLayoutManager(new LinearLayoutManager(this));
         rvDayEvents.setAdapter(adapter = new EventAdapter(database));
+        cv = (CalendarView)findViewById(R.id.cvDatePicker);
+        cv.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month,
+                                            int dayOfMonth) {
+                Calendar cal= Calendar.getInstance();
+                cal.set(year, month, dayOfMonth);
+                date1 = cal.getTime();
+            }
+        });
+
         Listeners();
     }
 
@@ -105,7 +125,8 @@ public class AgendaActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //TODO handle result
-        adapter.reload();
+
+        adapter.reload(date1);
     }
 
     @Override
