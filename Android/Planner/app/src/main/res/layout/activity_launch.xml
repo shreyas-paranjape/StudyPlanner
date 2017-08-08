@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="#ffffff">
 
     <ImageView
@@ -30,5 +31,19 @@
         app:layout_constraintVertical_bias="0.247"
         app:layout_constraintHorizontal_bias="0.502"
         android:id="@+id/textView" />
+=======
+    android:background="#ffffff"
+    tools:layout_editor_absoluteY="25dp"
+    tools:layout_editor_absoluteX="0dp">
+>>>>>>> 046566352b31d0cc7c413fe5eb7b607ce82f6d4b
 
+   <ImageView
+       android:layout_width="446dp"
+       android:layout_height="526dp"
+       android:src="@drawable/doubleranch"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintVertical_bias="0.341" />
 </android.support.constraint.ConstraintLayout>

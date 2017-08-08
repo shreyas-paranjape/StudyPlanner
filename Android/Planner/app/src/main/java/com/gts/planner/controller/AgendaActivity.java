@@ -1,5 +1,6 @@
 package com.gts.planner.controller;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -10,13 +11,16 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.OvershootInterpolator;
+import android.widget.Toast;
 
 import com.gts.planner.App;
 import com.gts.planner.R;
+import com.gts.planner.infra.RecyclerItemClickListener;
 import com.gts.planner.view.adapter.EventAdapter;
 
 public class AgendaActivity extends AppCompatActivity {
@@ -24,6 +28,7 @@ public class AgendaActivity extends AppCompatActivity {
     private boolean isFabMenuOpen;
     private EventAdapter adapter;
     private SQLiteDatabase database;
+    private RecyclerView rvDayEvents;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,9 +37,9 @@ public class AgendaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_agenda);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        RecyclerView rvDayEvents = (RecyclerView) findViewById(R.id.rvDayEvents);
+        rvDayEvents = (RecyclerView) findViewById(R.id.rvDayEvents);
         rvDayEvents.setLayoutManager(new LinearLayoutManager(this));
-       rvDayEvents.setAdapter(adapter = new EventAdapter(database));
+        rvDayEvents.setAdapter(adapter = new EventAdapter(database));
         Listeners();
     }
 
@@ -77,6 +82,21 @@ public class AgendaActivity extends AppCompatActivity {
                 collapseFabMenu();
             }
         });
+
+        rvDayEvents.addOnItemTouchListener(
+                new RecyclerItemClickListener(AgendaActivity.this, rvDayEvents ,
+                        new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        Toast.makeText(AgendaActivity.this, "Success", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        Toast.makeText(AgendaActivity.this, "Long-press Success!",
+                                Toast.LENGTH_LONG).show();
+                    }
+                })
+        );
+
 
        }
 
