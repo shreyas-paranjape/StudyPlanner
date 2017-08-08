@@ -57,6 +57,7 @@ public class AgendaActivity extends AppCompatActivity {
                 Calendar cal= Calendar.getInstance();
                 cal.set(year, month, dayOfMonth);
                 date1 = cal.getTime();
+                adapter.reload(date1);
             }
         });
 

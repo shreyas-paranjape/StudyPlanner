@@ -54,12 +54,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
     public String query(Date aDate){
         Calendar today = Calendar.getInstance();
         if( aDate != null)
-        {today.setTime(aDate);}
+            today.setTime(aDate);
         today.set(Calendar.HOUR, 0);
         today.set(Calendar.MINUTE, 0);
         today.set(Calendar.SECOND, 0);
         today.set(Calendar.MILLISECOND, 0);
-        Calendar tomorrow = today;
+        Calendar tomorrow = Calendar.getInstance();
+        tomorrow.setTime(today.getTime());
         tomorrow.add(Calendar.DAY_OF_MONTH,1);
         tomorrow.set(Calendar.HOUR, 0);
         tomorrow.set(Calendar.MINUTE, 0);
