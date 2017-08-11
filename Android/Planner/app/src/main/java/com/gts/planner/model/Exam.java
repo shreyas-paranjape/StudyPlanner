@@ -1,16 +1,28 @@
 package com.gts.planner.model;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 public class Exam {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 39f943f18fea2b1ba785616a09f40eac6dfbd73e
     private Long person;
     private String paper;
+    private String examDesc;
     private Long sDate;
     private Long time;
     private String Status;
+    private Long id;
 
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
     public Exam(){
         this.Status = " ";
     }
@@ -86,5 +98,24 @@ public class Exam {
         exam.setStatus(cursor.getString(cursor.getColumnIndex("Status")));
         return exam;
 
+<<<<<<< HEAD
+=======
+    }
+
+    public ContentValues toValues() {
+        ContentValues values = new ContentValues();
+        values.put("ID", getId());
+        values.put("Name", getPaper());
+        values.put("desc", getExamDesc());
+        values.put("Date", getsDate());
+        return values;
+    }
+    public String getExamDesc() {
+        return examDesc;
+    }
+
+    public void setExamDesc(String examDesc) {
+        this.examDesc = examDesc;
+>>>>>>> 39f943f18fea2b1ba785616a09f40eac6dfbd73e
     }
 }

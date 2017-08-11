@@ -9,6 +9,12 @@ public class App extends Application {
 
     private SQLiteDatabase database;
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        deleteDatabase("studyplanner.db");
+    }
+
     public SQLiteDatabase getDatabase() {
         if (database == null) {
             database = new DatabaseManager(this, "studyplanner.db").getWritableDatabase();

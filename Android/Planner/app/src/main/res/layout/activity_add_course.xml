@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/crater"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="317dp"
+        android:layout_height="51dp"
+        android:id="@+id/course_name"
+        android:alpha="0.89"
+        android:hint="  Enter the Course Name here! "
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/textbox_shape"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.507" />
+
+    <EditText
+        android:id="@+id/desc_course"
+        android:layout_width="322dp"
+        android:layout_height="90dp"
+        android:alpha="0.89"
+        android:hint="Space for notes\nFor example, chapters to study....."
+        android:textAlignment="center"
+        android:background="@drawable/textbox_shape"
+        app:layout_constraintBottom_toTopOf="@+id/day_course"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prof_course" />
+
+    <EditText
+        android:id="@+id/prof_course"
+        android:layout_width="150dp"
+        android:layout_height="106dp"
+        android:alpha="0.89"
+        android:hint="Enter Prof Name! "
+        android:textAlignment="center"
+        android:background="@drawable/textbox_shape"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/desc_course"
+        app:layout_constraintTop_toBottomOf="@+id/course_name"
+        app:layout_constraintVertical_bias="0.387"
+        app:layout_constraintRight_toLeftOf="@+id/location_course"
+        app:layout_constraintHorizontal_bias="0.592" />
+
+    <EditText
+        android:id="@+id/location_course"
+        android:layout_width="191dp"
+        android:layout_height="106dp"
+        android:alpha="0.89"
+        android:hint="Enter the location! "
+        android:textAlignment="center"
+        android:background="@drawable/textbox_shape"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/desc_course"
+        app:layout_constraintTop_toBottomOf="@+id/course_name"
+        app:layout_constraintVertical_bias="0.517"
+        app:layout_constraintLeft_toRightOf="@+id/prof_course" />
+
+    <Button
+        android:id="@+id/save_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="16dp"
+        android:background="#ffffff"
+        android:alpha="1.5"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/day_course"
+        android:layout_width="244dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:alpha="0.89"
+        android:background="@drawable/textbox_shape"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:hint="Enter day here!"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/sTime_course"
+        app:layout_constraintTop_toBottomOf="@+id/desc_course" />
+
+    <Button
+        android:id="@+id/sTime_course"
+        android:layout_width="272dp"
+        android:layout_height="51dp"
+        android:alpha="0.89"
+        android:background="@drawable/textbox_shape"
+        android:hint="Enter the start time of the course here!"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/eTime_course"
+        app:layout_constraintTop_toBottomOf="@+id/day_course"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/eTime_course"
+        android:layout_width="272dp"
+        android:layout_height="51dp"
+        android:alpha="0.89"
+        android:background="@drawable/textbox_shape"
+        android:hint="Enter the end time of the course here!"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/save_course"
+        app:layout_constraintTop_toBottomOf="@+id/sTime_course" />
+
+
+</android.support.constraint.ConstraintLayout>
