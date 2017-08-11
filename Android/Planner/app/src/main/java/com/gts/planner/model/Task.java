@@ -1,5 +1,6 @@
 package com.gts.planner.model;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -19,7 +20,9 @@ public class Task {
         this.id = Id;
         this.Status=0;
     }
-    public Long getId(Long id){
+
+
+    public Long getId(){
        return this.id;
     }
     public String getTitle(){
@@ -85,8 +88,13 @@ public class Task {
         task.setDueDate(cursor.getLong(cursor.getColumnIndex("DueDate")));
         return task;
     }
-<<<<<<< HEAD
-=======
+    public ContentValues toValues() {
+        ContentValues values = new ContentValues();
+        values.put("id", getId());
+        values.put("title", getTitle());
+        values.put("Description", getDescription());
+        values.put("DuDate", getDueDate());
+        return values;
+    }
 
->>>>>>> 48f4ff8999bc0acb1224ca8f86ca2838e83594de
 }
